@@ -1,0 +1,7 @@
+Jobkonnect/__pycache__
+account/__pycache__
+jobs/__pycache__
+jobs/migrations/__pycache__
+myenv/requirements.txt
+myenv/jobkonnect.sqlite3
+account/migrations/__pycache__
