@@ -65,3 +65,14 @@ class Employee(models.Model):
 
     def __str__(self):
         return self.firstname+" "+self.lastname+" "+self.email
+    
+class Certificate(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    date_of_issuance = models.DateField()
+    certificate_file = models.FileField(upload_to='certificates/')
+
+    class Meta:
+        managed = True
+        db_table = 'Certificate'
+        verbose_name_plural = 'Certificates'
