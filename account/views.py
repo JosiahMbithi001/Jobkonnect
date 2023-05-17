@@ -1,9 +1,10 @@
-from django.http import HttpResponse
+
 from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Your account page")
+def layout(request):
+    return HttpResponse("This is the home page")
 
 def signUp(request):
     return render(request, 'account/signup.html')

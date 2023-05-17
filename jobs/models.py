@@ -39,8 +39,14 @@ class Application(models.Model):
     Model for jobseeker applications
     """
     application_id = models.AutoField(primary_key=True)
+<<<<<<< HEAD
     job_seeker_id = models.ForeignKey('account.jobseeker', on_delete=models.CASCADE)
     job_id = models.ForeignKey(Job, on_delete=models.CASCADE)
+=======
+    #job_seeker_id = models.ForeignKey('account.jobseeker', on_delete=models.CASCADE)
+    job_id = models.ForeignKey(jobs, on_delete=models.CASCADE)
+    #job_title = models.ForeignKey(jobs, on_delete=models.CASCADE)
+>>>>>>> 19f35fee6084b7de9e3e5327b4da6abed7b40676
     status = models.IntegerField(choices=((1, 'Pending'), (2, 'Accepted'), (3, 'Rejected'), (4, 'Done')))
     application_date = models.DateTimeField(auto_now_add=True)
     proposal = models.TextField(max_length=4000)
