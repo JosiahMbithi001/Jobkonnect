@@ -40,7 +40,7 @@ class applications(models.Model):
     application_id = models.AutoField(primary_key=True)
     #job_seeker_id = models.ForeignKey('account.jobseeker', on_delete=models.CASCADE)
     job_id = models.ForeignKey(jobs, on_delete=models.CASCADE)
-    job_title = models.ForeignKey(jobs, on_delete=models.CASCADE)
+    #job_title = models.ForeignKey(jobs, on_delete=models.CASCADE)
     status = models.IntegerField(choices=((1, 'Pending'), (2, 'Accepted'), (3, 'Rejected'), (4, 'Done')))
     applicant_id = models.IntegerField()
     application_date = models.DateTimeField(auto_now_add=True)
