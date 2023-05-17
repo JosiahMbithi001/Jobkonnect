@@ -1,4 +1,5 @@
 from django.db import models
+from account.models import User,Employee,Employer
 import datetime
 # Create your models here.
 
@@ -17,8 +18,7 @@ class Job(models.Model):
     min_salary = models.IntegerField()
     max_salary = models.IntegerField()
     Date_posted = models.DateTimeField(auto_now_add=True)
-   # employer = oneToManyField(employer, on_delete=models.CASCADE) to be imported from account app
-
+    user_id = models.ForeignKey(Employer, on_delete=models.CASCADE)
 
     class Meta:
         """
@@ -28,10 +28,10 @@ class Job(models.Model):
         """
         managed = True
         db_table = 'jobs'
-        verbose_name_plural = 'jobs'
+        verbose_name_plural = 'Jobs'
 
     def __str__(self):
-        return self.job_title
+        return self.job_title + 'by' + self.user_id.firstname
 
 
 class Application(models.Model):
@@ -39,24 +39,18 @@ class Application(models.Model):
     Model for jobseeker applications
     """
     application_id = models.AutoField(primary_key=True)
-<<<<<<< HEAD
-    job_seeker_id = models.ForeignKey('account.jobseeker', on_delete=models.CASCADE)
+    userid = models.ForeignKey(Employee, on_delete=models.CASCADE)
     job_id = models.ForeignKey(Job, on_delete=models.CASCADE)
-=======
-    #job_seeker_id = models.ForeignKey('account.jobseeker', on_delete=models.CASCADE)
-    job_id = models.ForeignKey(jobs, on_delete=models.CASCADE)
-    #job_title = models.ForeignKey(jobs, on_delete=models.CASCADE)
->>>>>>> 19f35fee6084b7de9e3e5327b4da6abed7b40676
     status = models.IntegerField(choices=((1, 'Pending'), (2, 'Accepted'), (3, 'Rejected'), (4, 'Done')))
     application_date = models.DateTimeField(auto_now_add=True)
     proposal = models.TextField(max_length=4000)
-    # cv = to be uploaded
-    estimated_salary = models.IntegerField(max_length=40000)
+    cv = models.FileField(upload_to='cvs/')
+    estimated_salary = models.IntegerField()
 
     class Meta:
         managed = True
         db_table = 'applications'
-        verbose_name_plural = 'applications'
+        verbose_name_plural = 'Applications'
 
     def __str__(self):
-        return self. self.job_id.job_title + self.status
+        return self. self.job_id.job_title + self.job_id.job_type + self.status

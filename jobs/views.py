@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Job, Application
+from account.models import Employee, Employer, User
 from django.http import HttpResponse, request
+from django.contrib.auth.decorators import login_required
 
 """
 The jobs app views will handle the following:
@@ -17,6 +19,7 @@ jobseeker can see the aplication status and history
 """
 
 # Create your views here.
+@login_required
 def post_job(request):
     """
     This view will handle the posting of jobs by employers
@@ -29,32 +32,47 @@ def post_job(request):
         description = request.POST['description']
         min_salary = request.POST['min_salary']
         max_salary = request.POST['max_salary']
-        #employer_id = request.POST['employer_id']
-        this_job = Job(job_title=job_title, job_type=job_type, job_status=job_status, job_location=job_location, description=description, min_salary=min_salary, max_salary=max_salary)
+        employer_id = request.POST['employer_id']
+        this_job = Job(
+            job_title=job_title,
+            job_type=job_type,
+            job_status=job_status,
+            job_location=job_location,
+            description=description,
+            min_salary=min_salary,
+            max_salary=max_salary,
+            employer_id=employer_id
+            )
         this_job.save()
         #redirect to employer dashboard
         return redirect('/employer/')
     else:
-        # check a way to hundle errors, and then if it incorrect
-        #  info provided return the user to the same file
         return render(request, 'jobs/')
-
-def  apply_job(request):
-    """
-    This view will handle the application of jobs by jobseekers
-    """
+@login_required
+def apply_job(request):
     if request.method == 'POST':
-        job_id = request.POST['job_id']
-        job_title = request.POST['job_title']
+        job_id = request.POST('job_id')
+        status = 1  # Set default status to 'Pending'
+        proposal = request.POST('proposal')
+        cv = request.FILES.get('cv')
+        estimated_salary = request.POST('estimated_salary')
 
-        #job_seeker_id = request.POST['job_seeker_id']
-        apply_job = Application(job_id=job_id, job_title=job_title)
-        apply_job.save()
-        #redirect to jobseeker dashboard
+        application = Application(
+            job_id=Job.objects.get(job_id=job_id),
+            status=status,
+            proposal=proposal,
+            cv=cv,
+            estimated_salary=estimated_salary
+        )
+
+        application.objects.create()
+        
+        # Redirect to jobseeker dashboard or another appropriate page
         return redirect('/jobseeker/')
     else:
-        return render(request, 'jobs/')
-
+        # Render the form for applying to a job
+        return render(request, 'jobs/apply_job.html')
+@login_required
 def jobseeker_landing(request):
     """
     This view will handle the jobseeker landing page
@@ -62,22 +80,29 @@ def jobseeker_landing(request):
     """
     #get all jobs
     all_jobs = Job.objects.all()
-    return render(request, 'jobseeker/index.htm', {'all_jobs': all_jobs})
+    return render(request, 'jobseeker/indexpage', {'all_jobs': all_jobs})
 
-
+@login_required
 def employer_landing(request):
     """
     This view will handle the employer landing page
-    Show available jobseekers if no job posted
-    Show aplications made to his/her job post
+    Not sure if it will work
     """
+    if job_posted:
+        job_posted = Job.objects.filter(user_id=request.user)
+        applications = Application.objects.filter(job_id__in = job_posted)
+        return render(request, 'employer/landingpage', {'application': applications})
+    else:
+        employees = Employee.objects.filter(location=Employer.location)
+        return render(request, 'employer/landingpage', {'employees': employees})
 
+@login_required
 def aplicationhistory(request):
     """
     This function handles the jobseeker application history
     check on filtering b employee id
     """
-    all_aplications = Application.objects.all()
+    all_aplications = Application.objects.filter(user_id = User.userid)
 
     return render (request, 'jobs/', {'all_aplications': all_aplications})
 
