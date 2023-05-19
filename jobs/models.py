@@ -1,5 +1,6 @@
 from django.db import models
-
+from account.models import User,Employee,Employer
+import datetime
 # Create your models here.
 
 """
@@ -7,17 +8,17 @@ Models for the jobs app
  Table jobs
 """
 
-class jobs(models.Model):
+class Job(models.Model):
     job_id = models.AutoField(primary_key=True)
-    job_title = models.CharField(max_length=35)
-    job_type = models.CharField(max_length=10)
-    job_location = models.CharField(max_length=35)
+    job_title = models.CharField(max_length=50)
+    job_type = models.CharField(max_length=50)
+    job_status = models.IntegerField(choices=((1, 'Active'), (2, 'Inactive')))
+    job_location = models.CharField(max_length=500)
     description = models.CharField(max_length=4000)
     min_salary = models.IntegerField()
     max_salary = models.IntegerField()
     Date_posted = models.DateTimeField(auto_now_add=True)
-   # employer_id = models.IntegerField() to be imported from account app
-
+    user_id = models.ForeignKey(Employer, on_delete=models.CASCADE)
 
     class Meta:
         """
@@ -27,28 +28,29 @@ class jobs(models.Model):
         """
         managed = True
         db_table = 'jobs'
-        verbose_name_plural = 'jobs'
+        verbose_name_plural = 'Jobs'
 
     def __str__(self):
-        return self.job_title
+        return self.job_title + 'by' + self.user_id.firstname
 
 
-class applications(models.Model):
+class Application(models.Model):
     """
     Model for jobseeker applications
     """
     application_id = models.AutoField(primary_key=True)
-    #job_seeker_id = models.ForeignKey('account.jobseeker', on_delete=models.CASCADE)
-    job_id = models.ForeignKey(jobs, on_delete=models.CASCADE)
-    #job_title = models.ForeignKey(jobs, on_delete=models.CASCADE)
+    userid = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    job_id = models.ForeignKey(Job, on_delete=models.CASCADE)
     status = models.IntegerField(choices=((1, 'Pending'), (2, 'Accepted'), (3, 'Rejected'), (4, 'Done')))
-    applicant_id = models.IntegerField()
     application_date = models.DateTimeField(auto_now_add=True)
+    proposal = models.TextField(max_length=4000)
+    cv = models.FileField(upload_to='cvs/')
+    estimated_salary = models.IntegerField()
 
     class Meta:
         managed = True
         db_table = 'applications'
-        verbose_name_plural = 'applications'
+        verbose_name_plural = 'Applications'
 
     def __str__(self):
-        return self.status
+        return self. self.job_id.job_title + self.job_id.job_type + self.status
