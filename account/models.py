@@ -1,9 +1,15 @@
 
 from django.db import models
+from django import forms
 
 
 class User(models.Model):
     """A model representing the users of JobKonnect website."""
+    REQUIRED_FIELDS = ['username', 'email', 'password']
+    # def __init__(self, username, email, password):
+    #     self.username = username
+    #     self.email = email
+    #     self.password = password
 
     ROLES = (
         ('employer', 'Employer'),
