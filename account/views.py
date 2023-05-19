@@ -1,22 +1,11 @@
-<<<<<<< HEAD
 from django.contrib.auth import authenticate, login
-=======
 
->>>>>>> fd7d3e1cbe956fd24fa030075dd16838d57b7401
 from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-<<<<<<< HEAD
 def index(request):
-    """
-    This is the landing autentication Page 
-    """
-    return render(request, "authentication.html")
-=======
-def layout(request):
     return HttpResponse("This is the home page")
->>>>>>> fd7d3e1cbe956fd24fa030075dd16838d57b7401
 
 def user_signup(request):
     """
