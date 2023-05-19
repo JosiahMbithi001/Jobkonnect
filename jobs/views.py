@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 """
 The jobs app views will handle the following:
 Employer posts a job and it is saved in the database
-    -This will be handled by post
+    -This will be handled by  request
 Jobseeker can see available jobs based on their location:
     -This will be handled by a get request on jobseeker landing page
 Jobseeker can apply for a job. 
@@ -32,7 +32,7 @@ def post_job(request):
         description = request.POST['description']
         min_salary = request.POST['min_salary']
         max_salary = request.POST['max_salary']
-        employer_id = request.POST['employer_id']
+        #employer_id = request.POST.get['employer_id']
         this_job = Job(
             job_title=job_title,
             job_type=job_type,
@@ -41,7 +41,7 @@ def post_job(request):
             description=description,
             min_salary=min_salary,
             max_salary=max_salary,
-            employer_id=employer_id
+            #employer_id=employer_id
             )
         this_job.save()
         #redirect to employer dashboard
@@ -87,9 +87,10 @@ def employer_landing(request):
     """
     This view will handle the employer landing page
     Not sure if it will work
+    add a logic to enable employer see the applicant account
     """
+    job_posted = Job.objects.filter(user_id=request.user)
     if job_posted:
-        job_posted = Job.objects.filter(user_id=request.user)
         applications = Application.objects.filter(job_id__in = job_posted)
         return render(request, 'employer/landingpage', {'application': applications})
     else:
