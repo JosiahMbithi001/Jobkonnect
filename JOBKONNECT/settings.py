@@ -126,7 +126,18 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Directory where certificate is to be stored
+#  Directory where certificate is to be stored
 MEDIA_ROOT = join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+# Login redirects
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/account/login/'
+
+# # Authentication Backend
+
+# AUTH_USER_MODEL = 'account.User'
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+# ]
+
