@@ -5,3 +5,6 @@ JOBKONNECT.urls.py Added name="landing_page" to the landing page
 authenticate.html will be the default accounts app landing page
 Moved templates from within account app to same level as manage.py
 jobs.models.py Added Docstring for Class Job
+
+JOBKONNECT settings.py Edited this line: 60: 'DIRS':[os.path.join(BASE_DIR), "templates"],
+Renamed layout.html to base.html

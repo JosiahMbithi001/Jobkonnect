@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from .forms import RegisterForm
 
 # Create your views here.
 def index(request):
@@ -13,7 +14,21 @@ def user_signup(request):
     """
     This function is responsible for user registration
     """
-    return render(request, 'account/signup.html')
+    if request.method == "GET":
+        form = RegisterForm()
+        return render(request, 'account/signup.html', {'form' : form })
+
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        #Should Add Employeeand Employer Validation
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            login (request, user)
+            return redirect(request, 'base.html')
+    return render(request, 'account/signup.html', {'form' : form })
+        
 def user_login(request):
     """
     This Function is responsible for user login 
