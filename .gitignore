@@ -11,3 +11,4 @@ JOBKONNECT/__pycache__
 *.pot
 *.pyc
 __pycache__
+*.sqlite3
