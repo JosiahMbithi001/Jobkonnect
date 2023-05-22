@@ -7,3 +7,5 @@ myenv/jobkonnect.sqlite3
 account/migrations/__pycache__
 JOBKONNECT/__pycache__
 *.pyc
+account/test_templates
+
