@@ -7,3 +7,7 @@ myenv/jobkonnect.sqlite3
 account/migrations/__pycache__
 JOBKONNECT/__pycache__
 *.pyc
+*.log
+*.pot
+*.pyc
+__pycache__
