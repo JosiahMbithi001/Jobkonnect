@@ -4,11 +4,13 @@ import datetime
 # Create your models here.
 
 """
-Models for the jobs app
- Table jobs
+Models for the jobs app and the Application Ap
 """
 
 class Job(models.Model):
+    """
+    This Moodel entails details of An Individual Job
+    """
     job_id = models.AutoField(primary_key=True)
     job_title = models.CharField(max_length=50)
     job_type = models.CharField(max_length=50)
@@ -39,14 +41,8 @@ class Application(models.Model):
     Model for jobseeker applications
     """
     application_id = models.AutoField(primary_key=True)
-<<<<<<< HEAD
-    #job_seeker_id = models.ForeignKey('account.jobseeker', on_delete=models.CASCADE)
-    job_id = models.ForeignKey(jobs, on_delete=models.CASCADE)
-    #job_title = models.ForeignKey(jobs, on_delete=models.CASCADE)
-=======
     userid = models.ForeignKey(Employee, on_delete=models.CASCADE)
     job_id = models.ForeignKey(Job, on_delete=models.CASCADE)
->>>>>>> fd7d3e1cbe956fd24fa030075dd16838d57b7401
     status = models.IntegerField(choices=((1, 'Pending'), (2, 'Accepted'), (3, 'Rejected'), (4, 'Done')))
     application_date = models.DateTimeField(auto_now_add=True)
     proposal = models.TextField(max_length=4000)
