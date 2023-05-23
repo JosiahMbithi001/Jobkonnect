@@ -1,9 +1,15 @@
 
 from django.db import models
+from django import forms
 
 
 class User(models.Model):
     """A model representing the users of JobKonnect website."""
+    REQUIRED_FIELDS = ['username', 'email', 'password']
+    # def __init__(self, username, email, password):
+    #     self.username = username
+    #     self.email = email
+    #     self.password = password
 
     ROLES = (
         ('employer', 'Employer'),
@@ -22,13 +28,14 @@ class User(models.Model):
         verbose_name_plural = "Users"
     
     def __str__(self):
-        return self.username +" "+self.role
+        return str(self.userid)
 
 
 class Employer(models.Model):
     """A model representing an employer on JobKonnect website."""
 
-    userid = models.AutoField(primary_key=True)
+    employerid = models.AutoField(primary_key=True)
+    userid =models.ForeignKey(User, on_delete=models.CASCADE)
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     phonenumber = models.CharField(max_length=20)
@@ -42,13 +49,14 @@ class Employer(models.Model):
         verbose_name_plural = "Employers"
 
     def __str__(self):
-        return self.firstname+" "+self.lastname+" "+self.email
+        return self.userid.username+" "+self.email
 
 
 class Employee(models.Model):
     """A model representing an employee on JobKonnect website."""
 
-    userid = models.AutoField(primary_key=True)
+    employeeid = models.AutoField(primary_key=True)
+    userid =models.ForeignKey(User, on_delete=models.CASCADE)
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
@@ -64,7 +72,7 @@ class Employee(models.Model):
         verbose_name_plural = "Employees"
 
     def __str__(self):
-        return self.firstname+" "+self.lastname+" "+self.email
+        return self.userid.username
     
 class Certificate(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)

@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, CertificateForm
 
 # Create your views here.
 def index(request):
@@ -31,7 +31,7 @@ def user_signup(request):
         
 def user_login(request):
     """
-    This Function is responsible for user login 
+    This Function Logins in an authenticated User
     """
     if request.method == "POST":
 
@@ -50,4 +50,16 @@ def user_logout(request):
     """
     logout(request)
     messages.success(request, ("You were successfully Logged Out"))
-    return redirect ("landing_page")
+    return redirect ("index.html")
+
+
+def upload_certificate(request):
+    if request.method == 'POST':
+        form = CertificateForm(request.POST, request.FILES)
+        if form.is_valid():
+            certificate = form.save(commit=False)
+            certificate.save()
+            return redirect('certificate_list')
+    else:
+        form = CertificateForm()
+    return render(request, 'upload_certificate.html', {'form': form})
