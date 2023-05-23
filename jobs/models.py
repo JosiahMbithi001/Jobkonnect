@@ -4,11 +4,13 @@ import datetime
 # Create your models here.
 
 """
-Models for the jobs app
- Table jobs
+Models for the jobs app and the Application Ap
 """
 
 class Job(models.Model):
+    """
+    This Moodel entails details of An Individual Job
+    """
     job_id = models.AutoField(primary_key=True)
     job_title = models.CharField(max_length=50)
     job_type = models.CharField(max_length=50)
