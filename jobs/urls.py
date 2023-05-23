@@ -5,10 +5,10 @@ from .views import *
 URL configuration for jobs app
 """
 urlpatterns = [
-    path('', jobseeker_landing, name='employee_landing'),
-    path('apply_job/<job_title>', apply_job, name='jobaplication'),
-    path('<employee_name/aplications', aplicationhistory, name='aplicationhistory'),
+    path('employee/', jobseeker_landing, name='employee_landing'),
+    path('employee/apply_job/<job_title>', apply_job, name='jobaplication'),
+    path('employee/<employee_name/aplications', aplicationhistory, name='aplicationhistory'),
     
-    path('', employer_landing, name="employer_landing"),
-    path('post_job', post_job, name='post_job')
+    path('employer/', employer_landing, name="employer_landing"),
+    path('employer/post_job', post_job, name='post_job')
 ]
