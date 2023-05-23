@@ -75,6 +75,7 @@ class Employee(models.Model):
         return self.userid.username
     
 class Certificate(models.Model):
+    """This is an Employees Certificate"""
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     date_of_issuance = models.DateField()

@@ -7,3 +7,7 @@ jobs.models.py Added Docstring for Class Job
 
 JOBKONNECT settings.py Edited this line: 60: 'DIRS':[os.path.join(BASE_DIR), "templates"],
 Renamed layout.html to base.html
+
+23 May Tuesday 2023
+Accounts.model.py Added Docstring to Certificate Class
+Remove os.path.join... in the settings File
