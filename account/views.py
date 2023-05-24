@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from .models import Employer, Employee, User
 from .forms import RegisterForm, CertificateForm, EmployeeForm, EmployerForm
 
 # Create your views here.
@@ -22,6 +23,7 @@ def employer_sign_up(request):
             user = form.save(commit=False)
             user.username = user.userame.lower()
             user.save()
+            Employer.save()
             login(request, user)
             return redirect(request, "index.html")
     return render(request, 'account/employer.html')
