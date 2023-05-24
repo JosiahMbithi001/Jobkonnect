@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Employer, Employee, User
+import random 
 from .forms import RegisterForm, CertificateForm, EmployeeForm, EmployerForm
 
 # Create your views here.
@@ -13,37 +14,79 @@ def index(request):
 
 def employer_sign_up(request):
     """Employers View for the SignUp Form"""
-    if request.method == "GET":
-        form = EmployerForm()
-        return render(request, 'account/employer.html', {'form' : form})
+    # if request.method == "GET":
+    #     form = EmployerForm()
+    #     return render(request, 'account/employer.html', {'form' : form})
     
     if request.method == "POST":
-        form = EmployerForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.username = user.userame.lower()
-            user.save()
-            Employer.save()
-            login(request, user)
-            return redirect(request, "index.html")
-    return render(request, 'account/employer.html')
+        firstname = request.POST('firstname')
+        lastname = request.POST('lastname')
+        phonenumber = request.POSt('phonenumber')
+        email = request.POST('email')
+        password = request.POST('password')
+        location = request.POST('location')
+        user_name = (firstname + random.randint(1, 9999)) 
+
+        new_employer = Employer(
+            firstname=firstname,
+            lastname=lastname,
+            phonenumber=phonenumber,
+            email=email,
+            password=password,
+            location=location
+        )
+        new_user = User(
+            username=user_name,
+            password=password,
+            role='Employer'
+        )
+        new_user.save()
+        new_employer.save()
+        return redirect('employer/')
+    else:
+        return render(request, 'account/employer.html')
+
 
 def employee_sign_up(request):
     """Employee signup View"""
-    if request.method == "GET":
-        form = EmployeeForm()
-        return render(request, 'account/employee.html', {'form': form})
+    # if request.method == "GET":
+    #     form = EmployeeForm()
+    #     return render(request, 'account/employee.html', {'form': form})
     
     if request.method == "POST":
-        form = EmployeeForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.username = user.username.lower()
-            user.save()
-            login(request, user)
-            return redirect(request, "index.html")
-    return render(request, "account/employee.html", {'form': form})
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        phonenumber = request.POST['phonenumber']
+        email = request.POST['email']
+        password = request.POST['password']
+        location = request.POST['location']
+        profession = request.POST['profession']
+        status = 'active'
+        user_name = f'{firstname}{random.randint(1, 9999)}'
 
+        new_user = User(
+            username=user_name,
+            password=password,
+            role="Employee"
+            )
+        new_user.save()
+
+        new_employee = Employee(
+            user=new_user,
+            firstname=firstname,
+            lastname=lastname,
+            phonenumber=phonenumber,
+            email=email,
+            password=password,
+            location=location,
+            profession=profession,
+            status=status
+        )
+        new_employee.save()
+        return redirect('index')
+    else:
+        return render(request, 'account/employee.html')
+ 
 def user_signup(request):
     """
     This function is responsible for user registration

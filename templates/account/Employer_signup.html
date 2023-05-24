@@ -1,25 +1,4 @@
-{% comment %} <!DOCTYPE html>
-<html>
-  <head>
-    <title>Signup Page</title>
-  </head>
-  <body>
-    <h1>Signup Page</h1>
-    <form action="" method="post">
-      {% csrf_token %}
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username"><br><br>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email"><br><br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password"><br><br>
-      <label for="confirm-password">Confirm Password:</label>
-      <input type="password" id="confirm-password" name="confirm-password"><br><br>
-      <input type="submit" value="Signup">
-    </form>
-  </body>
-</html> {% endcomment %}
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>JobKonnect Signup</title>
@@ -68,19 +47,8 @@
   </style>
 </head>
 <body>
-<H1> Create an Acoount align="right"</H1>
+<H1> Create an Acoount </H1>
   <div class="container">
-    <div class="signup-column">
-      <h2>Employer</h2>
-      <form action="employer_signup.php" method="post">
-        <input type="text" name="employer_first_name" placeholder="First Name" required>
-        <input type="text" name="employer_last_name" placeholder="Last Name" required>
-        <input type="text" name="employer_email" placeholder="Email" required>
-        <input type="password" name="employer_password" placeholder="Password" required>
-        <input type="password" name="employer_password" placeholder="Confirm Password" required>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
     <div class="signup-column">
       <h2>Employee</h2>
       <form action="employee_signup.php" method="post">
@@ -96,4 +64,3 @@
   </div>
 </body>
 </html>
- {% endcomment %}
