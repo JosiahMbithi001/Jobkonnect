@@ -19,13 +19,20 @@ def employer_sign_up(request):
     #     return render(request, 'account/employer.html', {'form' : form})
     
     if request.method == "POST":
-        firstname = request.POST('firstname')
-        lastname = request.POST('lastname')
-        phonenumber = request.POSt('phonenumber')
-        email = request.POST('email')
-        password = request.POST('password')
-        location = request.POST('location')
-        user_name = (firstname + random.randint(1, 9999)) 
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        phonenumber = request.POST['phonenumber']
+        email = request.POST['email']
+        password = request.POST['password']
+        location = request.POST['location']
+        user_name = f'{firstname}{random.randint(1, 9999)}'
+
+        new_user = User(
+            username=user_name,
+            password=password,
+            role='Employer'
+        )
+        new_user.save()
 
         new_employer = Employer(
             firstname=firstname,
@@ -35,12 +42,6 @@ def employer_sign_up(request):
             password=password,
             location=location
         )
-        new_user = User(
-            username=user_name,
-            password=password,
-            role='Employer'
-        )
-        new_user.save()
         new_employer.save()
         return redirect('employer/')
     else:
@@ -49,10 +50,7 @@ def employer_sign_up(request):
 
 def employee_sign_up(request):
     """Employee signup View"""
-    # if request.method == "GET":
-    #     form = EmployeeForm()
-    #     return render(request, 'account/employee.html', {'form': form})
-    
+
     if request.method == "POST":
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']

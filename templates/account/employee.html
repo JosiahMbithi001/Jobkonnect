@@ -6,6 +6,55 @@
         {{ form.as_p }}
         <button type="submit">Submit</button>
     </form> {% endcomment %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JobKonnect Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .signup-column {
+      flex: 1;
+      padding: 20px;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .signup-column:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
     <H1> Create an Acoount </H1>
   <div class="container">
     <div class="signup-column">
@@ -24,4 +73,6 @@
       </form>
     </div>
   </div>
+</body>
+</html>
 {% endblock %}
