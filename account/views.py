@@ -35,6 +35,7 @@ def employer_sign_up(request):
         new_user.save()
 
         new_employer = Employer(
+            userid=new_user,
             firstname=firstname,
             lastname=lastname,
             phonenumber=phonenumber,
