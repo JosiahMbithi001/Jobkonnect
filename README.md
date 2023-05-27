@@ -8,7 +8,7 @@ JobKonnect is a web-based platform that aims to connect employers and employees 
 
 Features
 
-Employer Features
+## Employer Features
 
 Post Jobs: Employers can easily create and post job openings on JobKonnect. They can provide detailed job descriptions, including the position title, required qualifications, responsibilities, and any additional information they deem necessary.
 
@@ -20,7 +20,7 @@ Review Applications: Employers can review and manage applications submitted by j
 
 Communication: JobKonnect provides a communication channel between employers and job seekers. Employers can initiate contact with potential candidates through the platform's messaging system.
 
-Job Seeker Features
+## Job Seeker Features
 
 Search Jobs: Job seekers can search for job opportunities based on their desired location and job type. This feature allows them to filter the available job listings to find positions that align with their preferences.
 
@@ -32,22 +32,22 @@ Receive Job Alerts: Job seekers can opt to receive email or push notifications f
 
 Communication: JobKonnect facilitates communication between job seekers and employers. Job seekers can receive messages from employers regarding their applications and engage in further discussions related to the job.
 
-Technologies Used:
+### Technologies Used:
 
 Frontend: The frontend of JobKonnect is built using modern web technologies such as HTML, CSS, and JavaScript. Frameworks like Tailwindcss and/or Bootstrap may be utilized to enhance the user interface and provide a responsive design.
 
-Backend: 
+1. Backend: 
 
 The backend is powered by a server-side language Python, which interacts with the database and handles the business logic. The Django will be used to expedite development.
 
-Database: 
+1. Database: 
 
 Django built-in database management system sqlite was used to generate and store data from tables defined in a models folder. The data stored is related to job listings, employers, job seekers, and applications.
 
-Authentication: 
+1. Authentication: 
 
 To ensure secure user authentication and authorization, a robust authentication system (django auth and csfr_token)will be implemented.
 
-Deployment: 
+1. Deployment: 
 
 The application can be deployed on a cloud platform like AWS, Google Cloud Platform, or Heroku for scalability and accessibility.
