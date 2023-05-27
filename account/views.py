@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Employer, Employee, User
@@ -6,18 +7,15 @@ import random
 from .forms import RegisterForm, CertificateForm, EmployeeForm, EmployerForm
 
 # Create your views here.
-def index(request):
+def base(request):
     """
     Default Accounts App Landing Page
     """
-    return render(request, "account/authentication.html")
+    return render(request, "base.html")
 
 def employer_sign_up(request):
     """Employers View for the SignUp Form"""
-    # if request.method == "GET":
-    #     form = EmployerForm()
-    #     return render(request, 'account/employer.html', {'form' : form})
-    
+  
     if request.method == "POST":
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
@@ -44,7 +42,7 @@ def employer_sign_up(request):
             location=location
         )
         new_employer.save()
-        return redirect('employer/')
+        return redirect("base.html")
     else:
         return render(request, 'account/employer.html')
 
@@ -82,7 +80,7 @@ def employee_sign_up(request):
             status=status
         )
         new_employee.save()
-        return redirect('index')
+        return redirect('templates/base')
     else:
         return render(request, 'account/employee.html')
  
