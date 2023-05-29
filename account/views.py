@@ -9,7 +9,7 @@ from .forms import RegisterForm, CertificateForm, EmployeeForm, EmployerForm
 # Create your views here.
 def base(request):
     """
-    Default Accounts App Landing Page
+    This is the landing autentication Page 
     """
     return render(request, "base.html")
 
@@ -90,6 +90,7 @@ def user_login(request):
     This Function Logins in an authenticated User
     """
     if request.method == "POST":
+
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
@@ -110,7 +111,6 @@ def user_logout(request):
 
 
 def upload_certificate(request):
-    """Employee Function fo Uploading Certificate"""
     if request.method == 'POST':
         form = CertificateForm(request.POST, request.FILES)
         if form.is_valid():

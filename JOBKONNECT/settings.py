@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from os.path import join
-import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,7 +57,7 @@ ROOT_URLCONF = 'JOBKONNECT.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS':[os.path.join(BASE_DIR, 'templates')], 
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +67,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+        #tell django where to find our templates
+        'DIRS': [str(BASE_DIR.joinpath('templates'))]
     },
 ]
 
@@ -119,14 +120,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+#Tell Django Where to locate our static files
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))] 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Directory where certificate is to be stored
+#  Directory where certificate is to be stored
 MEDIA_ROOT = join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+# Login redirects
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/account/login/'
+
+# # Authentication Backend
+
+# AUTH_USER_MODEL = 'account.User'
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+# ]
+

@@ -9,4 +9,7 @@ JOBKONNECT/__pycache__
 *.pyc
 account/test_templates
 *.sqlite3
-
+env/
+jobkonnect.sqlite3
+jobs/migrations
+/migrations/
