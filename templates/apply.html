@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application - JobKonnect</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to JobKonnect</h1>
+    <nav>
+      <a href="base.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="jobs.html">Find Job</a>
+      <a href="post.html">Post Job</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Job Application</h2>
+
+    <form action="process_job_application.php" method="POST">
+      <label for="job-title">Job Title:</label>
+      <input type="text" id="job-title" name="job-title" value="Senior Software Engineer" readonly>
+
+      <label for="full-name">Full Name:</label>
+      <input type="text" id="full-name" name="full-name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="resume">Resume:</label>
+      <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
+      <label for="cover-letter">Cover Letter:</label>
+      <textarea id="cover-letter" name="cover-letter" rows="8" required></textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </footer>
+</body>
+</html>

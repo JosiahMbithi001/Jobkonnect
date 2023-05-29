@@ -3,4 +3,4 @@ def index(request):
     """
     Returns Default Homepage
     """
-    return render(request, "templates/layout.html")
+    return render(request, "base.html")

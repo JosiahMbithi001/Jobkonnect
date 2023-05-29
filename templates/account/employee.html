@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    {% comment %} <form method="post">
-        {%csrf_token%}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form> {% endcomment %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,22 +48,39 @@
       background-color: #f2f2f2;
     }
   </style>
+  <script>
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm-password").value;
+
+      if (password !== confirmPassword) {
+        alert("Password and Confirm Password do not match.");
+        return false;
+      }
+
+      var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!passwordPattern.test(password)) {
+        alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+        return false;
+      }
+    }
+  </script>
 </head>
 <body>
-    <H1> Create an Acoount </H1>
+  <h1>Create an Account</h1>
   <div class="container">
     <div class="signup-column">
       <h2>Employee</h2>
-      <form action="employee" method="post">
-        {%csrf_token%}
+      <form action="employee" method="post" onsubmit="return validateForm();">
+        {% csrf_token %}
         <input type="text" name="firstname" placeholder="First Name" required> <br>
         <input type="text" name="lastname" placeholder="Last Name" required><br>
         <input type="text" name="email" placeholder="Email" required><br>
         <input type="text" name="profession" placeholder="Profession" required><br>
-        <input type="phonenumber" name="phonenumber" placeholder="Phone" required><br>
-        <input type="location" name="location" placeholder="Location" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <input type="password" name="password" placeholder="Confirm Password" required><br>
+        <input type="text" name="phonenumber" placeholder="Phone" required><br>
+        <input type="text" name="location" placeholder="Location" required><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required><br>
         <button type="submit">Sign Up</button>
       </form>
     </div>

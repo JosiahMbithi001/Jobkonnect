@@ -42,7 +42,7 @@ def employer_sign_up(request):
             location=location
         )
         new_employer.save()
-        return redirect("base.html")
+        return redirect("/")
     else:
         return render(request, 'account/employer.html')
 
@@ -80,27 +80,10 @@ def employee_sign_up(request):
             status=status
         )
         new_employee.save()
-        return redirect('templates/base')
+        return redirect('/')
     else:
         return render(request, 'account/employee.html')
  
-def user_signup(request):
-    """
-    This function is responsible for user registration
-    """
-    if request.method == "GET":
-        form = RegisterForm()
-        return render(request, 'account/employee.html', {'form' : form })
-
-    if request.method == "POST":
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.username = user.username.lower()
-            user.save()
-            login (request, user)
-            return redirect(request, 'base.html')
-    return render(request, 'account/signup.html', {'form' : form })
         
 def user_login(request):
     """
@@ -110,11 +93,12 @@ def user_login(request):
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
-        if user:
-            login(request, user)
-            return redirect("landing_page")
-        else:
-            return render(request, 'account/login.html')
+        # if user:
+        #     login(request, user)
+        return render(request, "account/login.html")
+        
+    else:
+        return redirect('/account/login')
 
 def user_logout(request):
     """
@@ -122,7 +106,7 @@ def user_logout(request):
     """
     logout(request)
     messages.success(request, ("You were successfully Logged Out"))
-    return redirect ("index.html")
+    return redirect ("login/")
 
 
 def upload_certificate(request):
