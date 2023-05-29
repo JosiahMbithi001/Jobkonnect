@@ -19,7 +19,7 @@ body {
 .job_type {
   height: 40px;
   text-align: center;
-  border: solid;
+  border: 1px solid #ccc;
   border-radius: 22px;
   width: 25%;
   padding: 0.75rem;
@@ -31,13 +31,6 @@ body {
 
 .job_type {
   margin-left: 20px;
-}
-
-/* Heading Styles */
-h1 {
-  color: rgb(232, 30, 30);
-  text-align: center;
-  margin-top: 40px;
 }
 
 /* Navigation Bar */
@@ -114,8 +107,50 @@ h1 {
   cursor: pointer;
 }
 
-/* .main-container {
-  border: solid;
-  border-radius: 25px;
-  width: auto;
-} */
+.job-container {
+  width: 50%;
+  height: Auto;
+  display: flex;
+  float: left;
+  border:2px solid #ccc;
+}
+
+.left {
+  float:left;
+  border:2px solid #ccc;
+}
+.job {
+  width: 80%;
+  height: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border:2px solid #ccc;
+}
+
+.job-headings #job-type,
+.job-headings #job-location,
+.job-salary .salary,
+.job-salary .job-posted,
+.job-salary #by {
+  border:2px solid #ccc;
+}
+
+.applybtn {
+  background-color: #1ec3e8;
+  color: white;
+  border: none;
+  border-radius: 22px;
+  height: 40px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.job-title h3 {
+  color: green;
+}
+
+.heading {
+  text-align: center;
+  justify-content: center;
+}

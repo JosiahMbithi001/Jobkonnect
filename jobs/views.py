@@ -72,30 +72,30 @@ def apply_job(request):
     else:
         # Render the form for applying to a job
         return render(request, 'jobs/apply_job.html')
-@login_required
+#@login_required
 def jobseeker_landing(request):
     """
     This view will handle the jobseeker landing page
     Check on how to filter based on the status, professionalism, location
     """
     #get all jobs
-    all_jobs = Job.objects.all()
-    return render(request, 'jobs/test.html', {'all_jobs': all_jobs})
+    jobs = Job.objects.all()
+    return render(request, 'jobs/employee_landing.html', {'jobs': jobs})
 
-@login_required
 def employer_landing(request):
     """
     This view will handle the employer landing page
     Not sure if it will work
     add a logic to enable employer see the applicant account
     """
-    job_posted = Job.objects.filter(user_id=request.user)
+    #job_posted = Job.objects.filter(user_id=request.user)
+    job_posted = ()
     if job_posted:
         applications = Application.objects.filter(job_id__in = job_posted)
         return render(request, 'employer/landingpage', {'application': applications})
     else:
         employees = Employee.objects.filter(location=Employer.location)
-        return render(request, 'employer/landingpage', {'employees': employees})
+        return render(request, 'jobs/employer_landing.html', {'employees': employees})
 
 @login_required
 def aplicationhistory(request):

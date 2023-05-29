@@ -17,10 +17,10 @@
             <b><a href="/employee">Home</a>
                 <span>&nbsp;</span>
             </div><div class="items">
-                <a href="/employee">Jobs</a>
+                <a href="/employee">Aplications</a>
                 <span>&nbsp;</span>
                 </div><div class="items">
-                <a href="employee/<employee_name/aplications">Aplication History</a>
+                <a href="employee/<employee_name/aplications">jobs history</a>
                 <span>&nbsp;</span>
                 </div><div class="items">
                 <a href="/employee">Profile</a>
@@ -40,44 +40,14 @@
             </div>
         </navbar>
     </header>
-    <body>
-    <div class="main-container">
-  <!--      <h1>JobKonekt</h1>
-        <h2>Find your dream job</h2>
-  -->
-        <section class="search-bar">
-            <div class="location">
-                <b>Search by location</b>
-                <select>
-                    <option value="location">Kimende</option>
-                    <option value="location">Thika</option>
-                    <option value="location">Nakuru</option>
-                    <option value="location">Kisii</option>
-                </select>
-            </div>
-            <div class="job_type">
-                <b>Search by job_type</b>
-                <select>
-                    <option value="job_type">Software Engineering</option>
-                    <option value="job_type">Electrical Engineering</option>
-                    <option value="job_type">Mechanical Engineering</option>
-                    <option value="job_type">Civil Engineering</option>
-                </select>
-            </div>
-            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
-            <div class="search-button">
-                <button class="searchbtn">Search</button>
-            </div>
-        </section>
-    </div>
-
+<div class="heading"><b> List of Your recent posted jobs </b></div>
 <div class="job-container">
-    {% for job in jobs %}
+    
     <br>
     <div class="job">
         
         <div class="job-title">
-            <h3>{{job.job_title}}</h3>
+            <h3></h3>
             <div class="job-headings">
                 <span id="job-type">Job Type:{{job.job_type}}</span> &nbsp; &nbsp;
                 <span id="job-location">Job Location: {{job.job_location}}</span>
@@ -91,18 +61,20 @@
             </div>
         </div>
         <div class="job-description">
-            <p>{{job.description}}</p>
+            <p></p>
         </div>
         <div class="job-requirements">
-            <p>Job status: {{job.job_status}}</p>
+            <p></p>
         </div>
         <div class="job-apply">
-            <button class="applybtn">Apply This Job</button><br>
+            <button class="applybtn">View Aplications</button><br>
         </div>
         <br>
         
     </div>
-    {% endfor %}
+
 </div>
+<br>
+<div class="left">Employees near you</div>
 </body>
 </html>
