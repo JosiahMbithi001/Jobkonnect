@@ -56,7 +56,7 @@ class Employee(models.Model):
     """A model representing an employee on JobKonnect website."""
 
     employeeid = models.AutoField(primary_key=True)
-    userid =models.ForeignKey(User, on_delete=models.CASCADE)
+    user =models.ForeignKey(User, on_delete=models.CASCADE)
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)

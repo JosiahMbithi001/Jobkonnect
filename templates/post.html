@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Posting - JobKonnect</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to JobKonnect</h1>
+    <nav>
+      <a href="base.html">Home</a>
+      <a href="jobs.html" target="_blank">Find Job</a>
+      <a href="post.html" target="_blank">Post Job</a>
+      <a href="contact.html" target="_blank">Contact Us</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Post a Job</h2>
+
+    <form action="process_job_posting.php" method="POST">
+      <label for="job-title">Job Title:</label>
+      <input type="text" id="job-title" name="job-title" required><br><br>
+
+      <label for="company-name">Company Name:</label>
+      <input type="text" id="company-name" name="company-name" required><br><br>
+
+      <label for="job-location">Location:</label>
+      <input type="text" id="job-location" name="job-location" required><br><br>
+
+      <label for="job-description">Job Description:</label><br>
+      <textarea id="job-description" name="job-description" rows="8" required></textarea><br><br>
+
+      <label for="job-requirements">Requirements:</label><br>
+      <textarea id="job-requirements" name="job-requirements" rows="4" required></textarea><br><br>
+
+      <label for="job-salary">Salary:</label>
+      <input type="text" id="job-salary" name="job-salary" required><br><br>
+
+      <label for="job-type">Job Type:</label>
+      <select id="job-type" name="job-type" required><br>
+        <option value="full-time">Full-time</option>
+        <option value="part-time">Part-time</option>
+        <option value="contract">Contract</option>
+        <option value="temporary">Temporary</option>
+      </select>
+
+      <label for="application-email">Application Email:</label>
+      <input type="email" id="application-email" name="application-email" required><br><br>
+
+      <button type="submit">Post Job</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </footer>
+</body>
+</html>
