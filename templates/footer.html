@@ -1,0 +1,27 @@
+{% load static%}
+<link rel="stylesheet" href="{% static '/css/public/output.css' %}">
+{% block body %}
+<div class="p-5  absolute bottom-0 bg-green pt-20 b-40 sticky">
+    <nav class=" md:flex md:items-center md:justify-between">
+        <div>
+            <ul class="md:flex md:items-center">
+                <li class="mx-4">
+                    <a href="" class=" text-xl text-white hover:text-white  hover:bg-black">HOME</a>
+                </li>
+                <li class="mx-4">
+                    <a href="" class=" text-xl text-white hover:text-white hover:bg-black">POST JOB</a>
+                </li>
+                <li class="mx-4">
+                    <a href="" class=" text-xl text-white hover:text-white hover:bg-black">FIND JOB</a>
+                </li>
+                <li class="mx-4">
+                    <a href="" class=" text-xl text-white hover:text-white hover:bg-black">ABOUT US</a>
+                </li>
+                <li class="mx-4">
+                    <a href="" class=" text-xl text-white hover:text-white hover:bg-black">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+{% endblock %}
