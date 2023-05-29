@@ -20,22 +20,13 @@
 
     <form action="process_job_application.php" method="POST">
       <label for="job-title">Job Title:</label>
-      <input type="text" id="job-title" name="job-title" value="Senior Software Engineer" readonly>
-
-      <label for="full-name">Full Name:</label>
-      <input type="text" id="full-name" name="full-name" required>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
+      <input type="text" id="job-title" name="job-title" value="Senior Software Engineer" readonly><br><br>
 
       <label for="resume">Resume:</label>
-      <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+      <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required><br><br>
 
-      <label for="cover-letter">Cover Letter:</label>
-      <textarea id="cover-letter" name="cover-letter" rows="8" required></textarea>
+      <label for="cover-letter">Cover Letter:</label><br>
+      <textarea id="cover-letter" name="cover-letter" rows="8" required></textarea><br><br>
 
       <button type="submit">Submit Application</button>
     </form>
