@@ -46,6 +46,8 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password']
 
+from .models import Certificate
+
 class CertificateForm(forms.ModelForm):
     """Where Users will display their Certificates"""
 
