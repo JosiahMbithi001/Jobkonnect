@@ -72,7 +72,7 @@ def apply_job(request):
     else:
         # Render the form for applying to a job
         return render(request, 'jobs/apply_job.html')
-#@login_required
+@login_required
 def jobseeker_landing(request):
     """
     This view will handle the jobseeker landing page
@@ -81,7 +81,7 @@ def jobseeker_landing(request):
     #get all jobs
     jobs = Job.objects.all()
     return render(request, 'jobs/employee_landing.html', {'jobs': jobs})
-
+@login_required
 def employer_landing(request):
     """
     This view will handle the employer landing page

@@ -108,10 +108,8 @@ body {
 }
 
 .job-container {
-  width: 50%;
+  width: 100%;
   height: Auto;
-  display: flex;
-  float: left;
   border:2px solid #ccc;
 }
 
@@ -120,10 +118,10 @@ body {
   border:2px solid #ccc;
 }
 .job {
-  width: 80%;
+  width: 70%;
   height: auto;
   justify-content: center;
-  display: flex;
+  margin-left: 20%;
   flex-direction: column;
   border:2px solid #ccc;
 }
