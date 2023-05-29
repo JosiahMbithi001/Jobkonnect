@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
   <head>
     <title>Signup Page</title>
@@ -18,4 +18,82 @@
       <input type="submit" value="Signup">
     </form>
   </body>
+</html> {% endcomment %}
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+  <title>JobKonnect Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .signup-column {
+      flex: 1;
+      padding: 20px;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .signup-column:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+<H1> Create an Acoount align="right"</H1>
+  <div class="container">
+    <div class="signup-column">
+      <h2>Employer</h2>
+      <form action="employer_signup.php" method="post">
+        <input type="text" name="employer_first_name" placeholder="First Name" required>
+        <input type="text" name="employer_last_name" placeholder="Last Name" required>
+        <input type="text" name="employer_email" placeholder="Email" required>
+        <input type="password" name="employer_password" placeholder="Password" required>
+        <input type="password" name="employer_password" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+    <div class="signup-column">
+      <h2>Employee</h2>
+      <form action="employee_signup.php" method="post">
+        <input type="text" name="employee_first_name" placeholder="First Name" required>
+        <input type="text" name="employee_last_name" placeholder="Last Name" required>
+        <input type="text" name="employee_email" placeholder="Email" required>
+        <input type="text" name="employee_profession" placeholder="Profession" required>
+        <input type="password" name="employee_password" placeholder="Password" required>
+        <input type="password" name="employee_password" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</body>
 </html>
+ {% endcomment %}

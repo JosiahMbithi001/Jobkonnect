@@ -80,7 +80,7 @@ def jobseeker_landing(request):
     """
     #get all jobs
     all_jobs = Job.objects.all()
-    return render(request, 'jobseeker/indexpage', {'all_jobs': all_jobs})
+    return render(request, 'account/base.html', {'all_jobs': all_jobs})
 
 @login_required
 def employer_landing(request):
