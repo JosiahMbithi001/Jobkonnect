@@ -99,8 +99,8 @@ def employer_landing(request):
         employees = Employee.objects.filter(location=Employer.location)
         return render(request, 'jobs/employer_landing.html', {'employees': employees})
 
-#@login_required
-def aplicationhistory(request):
+@login_required
+def applicationhistory(request):
     """
     This function handles the jobseeker application history
     check on filtering b employee id
