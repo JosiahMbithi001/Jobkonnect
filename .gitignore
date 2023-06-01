@@ -10,4 +10,6 @@ JOBKONNECT/__pycache__
 account/test_templates
 *.sqlite3
 test_apply.html
+jobs/migrations
+account/migrations
 
