@@ -19,7 +19,7 @@ jobseeker can see the aplication status and history
 """
 
 # Create your views here.
-@login_required
+#@login_required
 def post_job(request):
     """
     This view will handle the posting of jobs by employers
@@ -27,11 +27,12 @@ def post_job(request):
     if request.method == 'POST':
         job_title = request.POST['job_title']
         job_type = request.POST['job_type']
-        job_status = request.POST['job_status']
+        job_status = 1
         job_location = request.POST['job_location']
         description = request.POST['description']
         min_salary = request.POST['min_salary']
         max_salary = request.POST['max_salary']
+        
         #employer_id = request.POST.get['employer_id']
         this_job = Job(
             job_title=job_title,
@@ -47,7 +48,7 @@ def post_job(request):
         #redirect to employer dashboard
         return redirect('/employer/')
     else:
-        return render(request, 'jobs/')
+        return render(request, 'post.html')
 @login_required
 def apply_job(request):
     if request.method == 'POST':
