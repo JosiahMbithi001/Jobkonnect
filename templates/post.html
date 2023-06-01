@@ -93,7 +93,7 @@
         <input type="text" id="job-title" name="job_title" required><br><br>
   
         <label for="company-name">Company Name:</label> 
-        <input type="text" id="company-name" name="company-name" required><br><br>
+        <input type="text" id="company-name" name="company-name" placeholder="optional"><br><br>
 
         <label for="job-type">Job Type:</label>
         <select id="job-type" name="job_type" required>
@@ -111,11 +111,10 @@
         <textarea id="job-description" name="description" rows="8" required></textarea><br><br>
   
         <label for="job-requirements">Requirements:</label><br>
-        <textarea id="job-requirements" name="job-requirements" rows="4" required></textarea><br><br>
+        <textarea id="job-requirements" name="requirements" rows="4" required></textarea><br><br>
   
         <label for="job-salary-min">Salary</label><br>
-        <input type="text" id="min_salary" name="min_salary" placeholder="Minimum Salary" required>
-        <input type="text" id="max_salary" name="max_salary" placeholder="Maximum Salary" required><br><br>
+        <input type="text" id="max_salary" name="salary" placeholder="Maximum Salary" required><br><br>
   
         <button type="submit">Post Job</button>
       </form>

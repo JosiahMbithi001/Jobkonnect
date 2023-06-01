@@ -1,11 +1,12 @@
 
 from django.db import models
 from django import forms
+from django.contrib.auth.models import AbstractUser
 
 
-class User(models.Model):
+class User(AbstractUser):
     """A model representing the users of JobKonnect website."""
-    REQUIRED_FIELDS = ['username', 'email', 'password']
+    REQUIRED_FIELDS = [ 'email', 'password']
     # def __init__(self, username, email, password):
     #     self.username = username
     #     self.email = email
@@ -17,10 +18,15 @@ class User(models.Model):
     )
 
     userid = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=100)
+    username = models.CharField(unique=True, max_length=100)
     password = models.CharField(max_length=50)
     date_created = models.DateTimeField(auto_now_add=True)
     role = models.CharField(max_length=20, choices=ROLES)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+
+    USERNAME_FIELD = 'username'
 
     class Meta:
         managed = True

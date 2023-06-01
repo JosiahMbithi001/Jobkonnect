@@ -64,7 +64,11 @@ def employee_sign_up(request):
         new_user = User(
             username=user_name,
             password=password,
-            role="Employee"
+            role="Employee",
+            email=email,
+            is_active=True,
+            is_staff=True,
+            is_superuser=False,
             )
         new_user.save()
 
@@ -85,21 +89,35 @@ def employee_sign_up(request):
         return render(request, 'account/employee.html')
  
         
+# def user_login(request):
+#     """
+#     This Function Logins in an authenticated User
+#     """
+#     username = request.POST["username"]
+#     password = request.POST["password"]
+#     username = "joe"
+#     password = "123456"
+#     user= User.objects.get(username=username, password=password)
+#     if user is not None:
+#         login(request, user)
+#         return redirect("/")
+#     else:
+#         return render(request, 'account/login.html')
 def user_login(request):
-    """
-    This Function Logins in an authenticated User
-    """
     if request.method == "POST":
-
         username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
-        # if user:
-        #     login(request, user)
-        return render(request, "account/login.html")
-        
+        user = authenticate(username=username, password=password)
+        if user:
+            login(request, user)
+            messages.success(request, ("You were successfully Logged In"))
+            return redirect("/employer/post_job")
+        else:
+            messages.success(request, ("Error Logging In - Please Try Again..."))
+            return redirect("/account/login")
+       # return redirect("/")
     else:
-        return redirect('/account/login')
+        return render(request, 'account/login.html')
 
 def user_logout(request):
     """

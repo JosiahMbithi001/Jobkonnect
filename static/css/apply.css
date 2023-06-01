@@ -59,6 +59,8 @@ html, body, h1, h2, p, input, textarea, button {
     color: #bbf4f8;
     padding: 10px;
     text-align: center;
+    margin-top: 100%;
+    
   }
   
   footer a {

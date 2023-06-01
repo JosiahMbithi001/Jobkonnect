@@ -19,7 +19,7 @@ jobseeker can see the aplication status and history
 """
 
 # Create your views here.
-#@login_required
+@login_required
 def post_job(request):
     """
     This view will handle the posting of jobs by employers
@@ -49,8 +49,8 @@ def post_job(request):
         #redirect to employer dashboard
         return redirect('/employer/')
     else:
-        return render(request, 'jobs/post.html')
-#@login_required
+        return render(request, 'post.html')
+@login_required
 def apply_job(request):
     if request.method == 'POST':
         job_id = request.POST('job_id')
@@ -74,7 +74,7 @@ def apply_job(request):
     else:
         # Render the form for applying to a job
         return render(request, 'jobs/post.html')
-#@login_required
+@login_required
 def jobseeker_landing(request):
     """
     This view will handle the jobseeker landing page
@@ -83,7 +83,7 @@ def jobseeker_landing(request):
     #get all jobs
     jobs = Job.objects.all()
     return render(request, 'jobs/employee_landing.html', {'jobs': jobs})
-#@login_required
+@login_required
 def employer_landing(request):
     """
     This view will handle the employer landing page
