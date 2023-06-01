@@ -11,17 +11,25 @@ account/test_templates
 *.sqlite3
 account/migrations
 <<<<<<< HEAD
+<<<<<<< HEAD
 env/
 jobkonnect.sqlite3
 jobs/migrations
 account/migrations
 =======
 myenv/
+=======
+
+>>>>>>> 9c3efc15f5360efa11c49e36f1462ea4f41e88be
 env/
 jobkonnect.sqlite3
 jobs/migrations
 /migrations/
 node_modules/
+<<<<<<< HEAD
 venv/
 
 >>>>>>> frankie
+=======
+venv/
+>>>>>>> 9c3efc15f5360efa11c49e36f1462ea4f41e88be

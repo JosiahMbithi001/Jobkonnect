@@ -11,7 +11,7 @@ def base(request):
     """
     This is the landing autentication Page 
     """
-    return render(request, "base.html")
+    return render(request, "account/authenticate.html")
 
 def employer_sign_up(request):
     """Employers View for the SignUp Form"""

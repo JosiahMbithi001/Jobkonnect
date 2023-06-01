@@ -152,3 +152,6 @@ body {
   text-align: center;
   justify-content: center;
 }
+.footer{
+  bottom: 0px;
+}

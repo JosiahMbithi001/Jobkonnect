@@ -11,3 +11,21 @@ Renamed layout.html to base.html
 23 May Tuesday 2023
 Accounts.model.py Added Docstring to Certificate Class
 Remove os.path.join... in the settings File
+In Templates 
+Accounts App: Added authenticate.html for account landing Page
+employee.html for employee registartion
+employer.html for Employer registartion
+base.html is the template to be inherited
+index.html is the sites Landing Page
+
+24 May 2023
+JOBKONNECT/settings.py Deleted os.path.join...
+account/views.py renamed authentication to authenticate
+JOBKONNECT/views renamed index.html to be the landing page
+account/forms.py commented out the def __init__
+installed tailwinds
+
+29 May 2023
+After Pulling 
+JOBKONNECT urls.py Added path("", views.index , name="index"), for the Default Landing Page
+JOBKONNECT views.py return render(request, 'index.html') Changed from base.html to Serve index.html
