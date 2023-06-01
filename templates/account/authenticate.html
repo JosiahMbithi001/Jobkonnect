@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/authenticate.css'%}">
+<div class="container-1">
+    <div class="container-2">
+        <a href="signup/employer" class="box-1">SIGN UP AS AN EMPLOYER</a>
+        <a href="signup/employee" class="box-2">SIGN UP AS AN EMPLOYEE</a>
+        <br>   
+    <div class="container-3">
+       <a href="login" class="box-3">LOGIN</a>
+    </div>
+</div>
+{% endblock %}
