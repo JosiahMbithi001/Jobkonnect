@@ -1,5 +1,5 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +9,9 @@
     <header>
         <navbar id="nav">
             <div class="nav">
-<!--                 <div class="items">
+               <div class="items">
                  <a href="" ><h1>JobKonekt</h1></a>
-                </div> -->
+                </div>
                 <div class ="items">
                     
             <b><a href="/employee">Home</a>
@@ -39,7 +39,13 @@
             </div>
             </div>
         </navbar>
-    </header>
+    </header> -->
+{% extends 'jobs/job_base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
 <div class="heading"><b> List of Your recent posted jobs </b></div>
 <div class="job-container">
     
@@ -76,5 +82,5 @@
 </div>
 <br>
 <div class="left">Employees near you</div>
-</body>
-</html>
+<div class="right">Jobs near you</div>
+{% endblock %}

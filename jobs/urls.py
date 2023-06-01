@@ -6,7 +6,7 @@ URL configuration for jobs app
 """
 urlpatterns = [
     path('', jobseeker_landing, name='employee_landing'),
-    path('apply_job/<job_title>', apply_job, name='jobaplication'),
+    path('post_job', post_job, name='jobaplication'),
     path('<employee_name/aplications', aplicationhistory, name='aplicationhistory'),
     
     path('landing', employer_landing, name="employer_landing"),

@@ -27,28 +27,30 @@ def post_job(request):
     if request.method == 'POST':
         job_title = request.POST['job_title']
         job_type = request.POST['job_type']
-        job_status = request.POST['job_status']
+        job_status = 1
         job_location = request.POST['job_location']
         description = request.POST['description']
-        min_salary = request.POST['min_salary']
-        max_salary = request.POST['max_salary']
-        #employer_id = request.POST.get['employer_id']
+        salary = request.POST['salary']
+        requirements = request.POST['requirements']
+        """ note on line 36 i'm trying to get the current logged user"""
+       # employer_id = 1
         this_job = Job(
             job_title=job_title,
             job_type=job_type,
             job_status=job_status,
             job_location=job_location,
             description=description,
-            min_salary=min_salary,
-            max_salary=max_salary,
-            #employer_id=employer_id
+            salary=salary,
+            requiments=requirements,
+            employer_id=request.user()
+          #  employer_id=employer_id
             )
         this_job.save()
         #redirect to employer dashboard
         return redirect('/employer/')
     else:
-        return render(request, 'jobs/')
-@login_required
+        return render(request, 'jobs/post.html')
+#@login_required
 def apply_job(request):
     if request.method == 'POST':
         job_id = request.POST('job_id')
@@ -68,11 +70,11 @@ def apply_job(request):
         application.objects.create()
         
         # Redirect to jobseeker dashboard or another appropriate page
-        return redirect('/jobseeker/')
+        return redirect('jobs/post.html')
     else:
         # Render the form for applying to a job
-        return render(request, 'jobs/apply_job.html')
-@login_required
+        return render(request, 'jobs/post.html')
+#@login_required
 def jobseeker_landing(request):
     """
     This view will handle the jobseeker landing page
@@ -81,7 +83,7 @@ def jobseeker_landing(request):
     #get all jobs
     jobs = Job.objects.all()
     return render(request, 'jobs/employee_landing.html', {'jobs': jobs})
-@login_required
+#@login_required
 def employer_landing(request):
     """
     This view will handle the employer landing page
@@ -97,7 +99,7 @@ def employer_landing(request):
         employees = Employee.objects.filter(location=Employer.location)
         return render(request, 'jobs/employer_landing.html', {'employees': employees})
 
-@login_required
+#@login_required
 def aplicationhistory(request):
     """
     This function handles the jobseeker application history
