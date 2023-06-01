@@ -19,7 +19,7 @@ jobseeker can see the aplication status and history
 """
 
 # Create your views here.
-@login_required
+#@login_required
 def post_job(request):
     """
     This view will handle the posting of jobs by employers

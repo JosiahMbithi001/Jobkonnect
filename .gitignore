@@ -10,10 +10,10 @@ JOBKONNECT/__pycache__
 account/test_templates
 *.sqlite3
 account/migrations
-
 env/
 jobkonnect.sqlite3
 jobs/migrations
 /migrations/
 node_modules/
 venv/
+myenv/
