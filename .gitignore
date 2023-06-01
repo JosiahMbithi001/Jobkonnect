@@ -9,4 +9,5 @@ JOBKONNECT/__pycache__
 *.pyc
 account/test_templates
 *.sqlite3
+test_apply.html
 
