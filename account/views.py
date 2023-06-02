@@ -2,7 +2,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .models import Employer, Employee, User
+from .models import Employer, Employee
+from django.contrib.auth.models import User
 import random 
 from .forms import RegisterForm, CertificateForm, EmployeeForm, EmployerForm
 
@@ -28,7 +29,9 @@ def employer_sign_up(request):
         new_user = User(
             username=user_name,
             password=password,
-            role='Employer'
+            email=email,
+            first_name=firstname,
+            last_name=lastname
         )
         new_user.save()
 
@@ -64,11 +67,7 @@ def employee_sign_up(request):
         new_user = User(
             username=user_name,
             password=password,
-            role="Employee",
-            email=email,
-            is_active=True,
-            is_staff=True,
-            is_superuser=False,
+            email=email
             )
         new_user.save()
 
@@ -87,22 +86,6 @@ def employee_sign_up(request):
         return redirect('/')
     else:
         return render(request, 'account/employee.html')
- 
-        
-# def user_login(request):
-#     """
-#     This Function Logins in an authenticated User
-#     """
-#     username = request.POST["username"]
-#     password = request.POST["password"]
-#     username = "joe"
-#     password = "123456"
-#     user= User.objects.get(username=username, password=password)
-#     if user is not None:
-#         login(request, user)
-#         return redirect("/")
-#     else:
-#         return render(request, 'account/login.html')
 def user_login(request):
     if request.method == "POST":
         username = request.POST["username"]

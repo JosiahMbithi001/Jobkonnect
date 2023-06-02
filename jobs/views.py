@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Job, Application
-from account.models import Employee, Employer, User
+from account.models import Employee, Employer
 from django.http import HttpResponse, request
 from django.contrib.auth.decorators import login_required
 
@@ -105,7 +105,7 @@ def applicationhistory(request):
     This function handles the jobseeker application history
     check on filtering b employee id
     """
-    all_aplications = Application.objects.filter(user_id = User.userid)
+    all_aplications = Application.objects.filter(employee_id=request.user)
 
     return render (request, 'jobs/', {'all_aplications': all_aplications})
 

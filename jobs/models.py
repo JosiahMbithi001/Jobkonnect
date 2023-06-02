@@ -1,5 +1,5 @@
 from django.db import models
-from account.models import User,Employee,Employer
+from account.models import Employee,Employer
 import datetime
 # Create your models here.
 
