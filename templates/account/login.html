@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Login Page</title>
-  </head>
-  <body>
-    <h1>Login Page</h1>
+{% extends 'base.html'%}
+{% load static%}
+<title>Login Page</title>
+<link rel="stylesheet" href="{static 'login.css'}">
+<div class="container-1">
     <form action="" method="post">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username"><br><br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password"><br><br>
-      <input type="submit" value="Login">
-    </form>
-  </body>
-</html>
+      <div class="login-body">
+        <div class="username">
+          <label for="username">Username:</label><br>
+        </div>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Login"><br>
+        <span>New to JobKonnect? <br><a href="/account"> Create Account</a></span>
+    </div>
+      </form>
+</div>
