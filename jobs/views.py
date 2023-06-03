@@ -25,16 +25,18 @@ def post_job(request):
     This view will handle the posting of jobs by employers
     """
     if request.method == 'POST':
-        job_title = request.POST['job_title']
-        job_type = request.POST['job_type']
+        job_title = request.POST.get('job_title')
+        job_type = request.POST.get('job_type')
         job_status = 1
-        job_location = request.POST['job_location']
-        description = request.POST['description']
-        salary = request.POST['salary']
-        requirements = request.POST['requirements']
-        """ note on line 36 i'm trying to get the current logged user"""
-       # employer_id = 1
-        this_job = Job(
+        job_location = request.POST.get('job_location')
+        description = request.POST.get('description')
+        salary = request.POST.get('salary')
+        requirements = request.POST.get('requirements')
+
+        # Get the employer ID of the currently signed-in user
+        employer = Employer.objects.get(userid=request.user)
+
+        this_job = Job.objects.create(
             job_title=job_title,
             job_type=job_type,
             job_status=job_status,
@@ -42,12 +44,10 @@ def post_job(request):
             description=description,
             salary=salary,
             requiments=requirements,
-            employer_id=request.user()
-          #  employer_id=employer_id
-            )
-        this_job.save()
-        #redirect to employer dashboard
-        return redirect('/employer/')
+            user_id=employer
+        )
+        # Redirect to the employer dashboard
+        return redirect('/employer/landing')
     else:
         return render(request, 'post.html')
 @login_required
@@ -74,7 +74,7 @@ def apply_job(request):
     else:
         # Render the form for applying to a job
         return render(request, 'jobs/post.html')
-@login_required
+
 def jobseeker_landing(request):
     """
     This view will handle the jobseeker landing page
@@ -90,11 +90,13 @@ def employer_landing(request):
     Not sure if it will work
     add a logic to enable employer see the applicant account
     """
-    #job_posted = Job.objects.filter(user_id=request.user)
-    job_posted = ()
+    employer = Employer.objects.get(userid=request.user)
+
+    job_posted = Job.objects.filter(user_id=employer)
+    #job_posted = Job.objects.get(user_id=request.Employer)
     if job_posted:
-        applications = Application.objects.filter(job_id__in = job_posted)
-        return render(request, 'employer/landingpage', {'application': applications})
+        # applications = Application.objects.filter(job_id__in = job_posted)
+        return render(request, 'jobs/employer_landing.html', {'jobs': job_posted})
     else:
         employees = Employee.objects.filter(location=Employer.location)
         return render(request, 'jobs/employer_landing.html', {'employees': employees})
@@ -105,7 +107,8 @@ def applicationhistory(request):
     This function handles the jobseeker application history
     check on filtering b employee id
     """
-    all_aplications = Application.objects.filter(employee_id=request.user)
+    employee_id = Employee.objects.get(user=request.user)
+    all_aplications = Application.objects.filter(employee_id=employee_id)
 
     return render (request, 'jobs/', {'all_aplications': all_aplications})
 
