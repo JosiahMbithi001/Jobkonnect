@@ -32,22 +32,22 @@ Receive Job Alerts: Job seekers can opt to receive email or push notifications f
 
 Communication: JobKonnect facilitates communication between job seekers and employers. Job seekers can receive messages from employers regarding their applications and engage in further discussions related to the job.
 
-### Technologies Used:
+## Technologies Used:
 
 Frontend: The frontend of JobKonnect is built using modern web technologies such as HTML, CSS, and JavaScript. Frameworks like Tailwindcss and/or Bootstrap may be utilized to enhance the user interface and provide a responsive design.
 
-1. Backend: 
+#### Backend: 
 
 The backend is powered by a server-side language Python, which interacts with the database and handles the business logic. The Django will be used to expedite development.
 
-1. Database: 
+#### Database: 
 
 Django built-in database management system sqlite was used to generate and store data from tables defined in a models folder. The data stored is related to job listings, employers, job seekers, and applications.
 
-1. Authentication: 
+*** Authentication: ***
 
 To ensure secure user authentication and authorization, a robust authentication system (django auth and csfr_token)will be implemented.
 
-1. Deployment: 
+*** Deployment: ***
 
 The application can be deployed on a cloud platform like AWS, Google Cloud Platform, or Heroku for scalability and accessibility.

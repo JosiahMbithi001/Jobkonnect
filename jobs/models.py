@@ -1,5 +1,5 @@
 from django.db import models
-from account.models import User,Employee,Employer
+from account.models import Employee,Employer
 import datetime
 # Create your models here.
 
@@ -13,10 +13,10 @@ class Job(models.Model):
     job_title = models.CharField(max_length=50)
     job_type = models.CharField(max_length=50)
     job_status = models.IntegerField(choices=((1, 'Active'), (2, 'Inactive')))
+    requiments = models.CharField(max_length=1000)
     job_location = models.CharField(max_length=500)
     description = models.CharField(max_length=4000)
-    min_salary = models.IntegerField()
-    max_salary = models.IntegerField()
+    salary = models.IntegerField()
     Date_posted = models.DateTimeField(auto_now_add=True)
     user_id = models.ForeignKey(Employer, on_delete=models.CASCADE)
 
