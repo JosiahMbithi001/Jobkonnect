@@ -1,16 +1,38 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Login Page</title>
   </head>
   <body>
-    <h1>Login Page</h1>
-    <form action="" method="post">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username"><br><br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password"><br><br>
-      <input type="submit" value="Login">
-    </form>
+    <main>
+      <article class="article">
+        <div class="logged_out_form">
+          <h2 class="hbtn_logo">Job konnect login</h2>
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="field">
+              <label class="control-label" for="user_email">User name</label><br>
+              <input autofocus="autofocus" class="form-control" type="text" name="username" id="user_email" />
+            </div><br>
+            <div class="field">
+              <label class="control-label" for="user_password">Password</label><br>
+              <input autocomplete="off" class="form-control" type="password" name="password" id="user_password" />
+            </div><br><br>
+            <div class="actions">
+              <input type="submit" name="commit" value="Log in" class="btn btn-primary" data-disable-with="Log in" />
+            </div>
+          </form>
+          <ul id="devise_links" class="gap">
+            <li>
+              <a href="">Forgot your password?</a>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <div class="copyright">Copyright © 2023 JobKonnect, All rights reserved.</div>
+    </main>
   </body>
 </html>

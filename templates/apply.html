@@ -2,9 +2,7 @@
 <html>
 <head>
   <title>Job Application - JobKonnect</title>
-
   <link rel="stylesheet" type="text/css" href="apply.css">
-
   <link rel="stylesheet" type="text/css" href="styles.css">
   <style>
     /* CSS */
@@ -90,9 +88,9 @@
     <form action="{% url 'apply_job' %}" method="POST">
       {% csrf_token %}
       <label for="job-title">Job Title:</label>
-
+<<<<<<< HEAD
       <input type="text" id="job-title" name="job-title" value="Senior Software Engineer" readonly><br><br>
-
+=======
       <input type="text" id="job-title" name="job_title" readonly><br><br>
 
       <label for="resume">Resume:</label>
