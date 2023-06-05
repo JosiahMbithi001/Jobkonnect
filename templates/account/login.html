@@ -1,6 +1,5 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,44 +13,23 @@
           <form action="" method="post">
             {% csrf_token %}
             <div class="field">
-              <label class="control-label" for="user_email">User name</label><br>
+              <label class="control-label" for="user_email">Username</label><br>
               <input autofocus="autofocus" class="form-control" type="text" name="username" id="user_email" />
             </div><br>
             <div class="field">
               <label class="control-label" for="user_password">Password</label><br>
               <input autocomplete="off" class="form-control" type="password" name="password" id="user_password" />
-            </div><br><br>
+            </div><br>
             <div class="actions">
               <input type="submit" name="commit" value="Log in" class="btn btn-primary" data-disable-with="Log in" />
             </div>
           </form>
-          <ul id="devise_links" class="gap">
-            <li>
-              <a href="">Forgot your password?</a>
-            </li>
-          </ul>
+        <ul id="devise_links" class="gap">
+        <a href="">Forgot your password?</a>
+        </ul>
         </div>
       </article>
-      <div class="copyright">Copyright © 2023 JobKonnect, All rights reserved.</div>
+      <div class="copyright">Copyright © 2023 JobKonnect,<br> All rights reserved.</div>
     </main>
   </body>
 </html>
-
-{% extends 'base.html'%}
-{% load static%}
-<title>Login Page</title>
-<link rel="stylesheet" href="{static 'login.css'}">
-<div class="container-1">
-    <form action="" method="post">
-      <div class="login-body">
-        <div class="username">
-          <label for="username">Username:</label><br>
-        </div>
-        <input type="text" id="username" name="username"><br><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Login"><br>
-        <span>New to JobKonnect? <br><a href="/account"> Create Account</a></span>
-    </div>
-      </form>
-</div>
