@@ -1,43 +1,46 @@
-{% extends 'base.html' %}
 {% load static%}
-<link rel="stylesheet" href="{% static '/css/public/output.css' %}">
-{% block body %}
-<div class="py-4">
-<div class="mt-26 mb-11 w-11/12 h-screen relative left-10 text-white">
-    <div class="class=" relative mr-16 mx-px-8 flex h-screen ">
-            <h1 class="float-left font-serif text-6xl my-8 ">
-                WE KONNECT<br>YOU TO<br>YOUR NEXT JOB
-            </h1>
-                <!-- <h6>Landing your Next Job is A Registration Away</h6> -->
-            <!-- <img class="float-right my-8" src="https://images.pexels.com/photos/1367269/pexels-photo-1367269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Man and Woman Facing You" width="600" height="600"> -->
-            <img class="float-right my-8" src="static/images/We_Konnect.webp" alt="Man and Woman Facing You" width="600" height="600">
-       </div>
-<div class="inline-block my-64">
-    <br>
-        <div class="absoute right-0 float-right mb-56">
-            <h1 class="font-serif text-6xl ">
-                <a>Post A Job</a>
-            </h1>
-            <h6 class="font-serif text-2xl my-2">Want A Skilled Personnel, <a href="" class="hover:text-white hover:bg-blue-400 underline underline-offset-8 hover:rounded-s">Post A Job</a> and Get the Best</h6>
-            <!-- <img class="mb-56"src="https://media.istockphoto.com/id/1365436662/photo/successful-partnership.jpg?b=1&s=170667a&w=0&k=20&c=u9NYd0qY266RW0x1nB5ng8scAJZ5LoftacwhtqD-v58=" width="600" height="600" alt="Announcement Megaphone"> -->
-            <img class="mb-56"src="/static/images/Post A Job.jpg" width="600" height="600" alt="Announcement Megaphone">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>JobKonnect</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+    <script src='main.js'></script>
+</head>
+<body>
+    <nav class="nav-bar">
+            <span class="logo">JOBKONNECT</span>
+            <ul class="nav-list">
+                <li class="nav-item" ><a href="index.php">HOME</a></li >
+                <li class="nav-item"><a href="job.php">POST JOB</a></li >
+                <li class="nav-item"><a href="company.php">FIND JOB</a></li >
+                <li class="nav-item"><a href="login.php">ABOUT US</a></li >
+                <li class="nav-item"><a href="register.php">CONTACT US</a></li >
+                <li class="nav-item"><button ><a href="login.html" class="buttons">LOGIN</a></button></li >
+                <li class="nav-item"><button ><a href="register.html" class="buttons">REGISTER</a></button></li >
+            </ul>
+    </nav>
+    <main class="container-1">
+        <div class="container-2">
+            <span class="title-1">
+                WE KONNECT <br>YOU TO <br>YOUR NEXT JOB
+            </span><br>
+            <img src="static/images/We_Konnect.webp" alt="Two People Looking at you" class="image-1">
         </div>
-        <div class="absolute right-0 float-right">
-            <h1 class=" font-serif text-6xl">Register Your Expertise</h1>
-            <h6 class="font-serif text-2xl my-2">You are <a href="" class="hover:bg-blue-400">a Click Away </a> from your Next Job</h6>
-            <!-- <img src="https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=465&q=80"  height="300" width="600" height="300"> -->
-            <img src="/static/images/register.jpg"  height="300" width="600" height="300">
+        <div class="container-3">
+            <div>
+                <span class="title-1">Post A Job</span><br>
+                <span class="title-2">Want A Skill Personnel, <a>Post A Job </a>and Get The Best</span><br>
+                <img src="static/images/Post A Job.jpg" alt="Two People Greeting each other symbolizing A Welcome" class="image-2">
+            </div>
+            <div>
+                <span class="title-1">Register Your Expertise</span><br>
+                <span class="title-2">You Are A <a href="">Click Away</a> from your Next Job</span><br>
+                <img src="static/images/register.jpg" alt="Carpenter in A Workshop" class="image-3">
         </div>
-</div>
-</div>
-hello
 
-{% endblock %}
-
-
-<!-- <h1 class="float-right font-serif text-2xl ">Register Your Expertise</h1> -->
- <!-- <p class="float-left font-serif text-2xl my-8">You are a Click Away from your Next Job</p>  -->
- <!-- <div class="flex">
-                <img src="" class="flex-auto w-32">
-            </div> -->
-</div>
+    </main>
+</body>
+</html>
