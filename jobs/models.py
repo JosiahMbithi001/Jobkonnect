@@ -53,4 +53,5 @@ class Application(models.Model):
         verbose_name_plural = 'Applications'
 
     def __str__(self):
-        return self.job_id.job_title 
+        return self.job_id.job_title
+
