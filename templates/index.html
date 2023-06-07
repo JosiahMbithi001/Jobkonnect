@@ -7,6 +7,7 @@
     <title>JobKonnect</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/footer.css' %}">
     <script src='main.js'></script>
 </head>
 <body>
@@ -22,6 +23,7 @@
                 <li class="nav-item"><button ><a href="/account/" class="buttons">REGISTER</a></button></li >
             </ul>
     </nav>
+   <div>
     <main class="container-1">
         <div class="container-2">
             <span class="title-1">
@@ -39,8 +41,15 @@
                 <span class="title-1">Register Your Expertise</span><br>
                 <span class="title-2">You Are A <a href="">Click Away</a> from your Next Job</span><br>
                 <img src="static/images/register.jpg" alt="Carpenter in A Workshop" class="image-3">
+            </div>
         </div>
 
     </main>
+</div> <br><br>
+<div>
+    <footer>
+        <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="{% url 'privacy' %}">Privacy Policy</a> | <a href="{% url 'about' %}">About Us</a> | <a href="{% url 'contact' %}">Contact Us</a> | <a href="{% url 'terms' %}">Terms of service</a></p>
+    </footer>
+</div>
 </body>
 </html>
