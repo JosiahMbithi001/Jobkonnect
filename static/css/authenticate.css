@@ -1,11 +1,12 @@
 .container-1 {
     display: flex; 
-    max-width: 40%;
+    max-width: 50%;
     justify-content:center;
     background-image: url('/static/images/spencer-davis-SVfXlChg9HI-unsplash.jpg');
     align-items: center;
     height: 100vh;
     margin-left: 30%;
+    background-repeat: no-repeat;
 }
 .container-2{
     display: inline-block;
@@ -16,19 +17,17 @@
     padding: 26px;
     font-family: serif;
     font-size: large;
-    /* background-color:skyblue; */
     max-width: auto;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     border-radius: 20px;
     color: white;
     border: 1px solid white;
 }  
 .box-2 {
-    /* background-color: rgb(20, 116, 57); */
+    width: 50%;
     max-width: auto;
     justify-content: flex-end;
     align-items: flex-end;
-    background-image: ;
     padding: 26px;
     border-radius: 20px;
     font-size: large;

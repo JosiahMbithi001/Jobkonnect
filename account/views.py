@@ -1,5 +1,4 @@
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Employer, Employee
@@ -92,6 +91,7 @@ def employee_sign_up(request):
         return redirect('/account/login')
     else:
         return render(request, 'account/employee.html')
+
 def user_login(request):
     if request.method == "POST":
         username = request.POST["username"]
