@@ -3,18 +3,62 @@
 <head>
   <title>Contact Us - JobKonnect</title>
   <style>
-    /* Add your custom CSS styles here */
+    body {
+      margin: 20px;
+      height: auto;
+    }
+
+    header {
+      background-color: #00bdfe;
+      color: #fff;
+      padding: 20px;
+    } 
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    section {
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      margin-top: auto;
+      height: 150px;
+        }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to JobKonnect</h1>
     <nav>
-      <a href="index.html" target="_blank">Home</a>
-      <a href="jobs.html" target="_blank">Find Jobs</a>
-      <a href="employers.html" target="_blank">For Employers</a>
+      <a href= '/' target="_blank">Home</a>
+      <a href="{ url 'employer/post_job'}" target="_blank">Post Job</a>
+      <a href="jobs.html" target="_blank">Find Job</a>
+      <a href="jobs.html" target="_blank">About UsJobs</a>
       <a href="contact.html" target="_blank">Contact Us</a>
+      <a href="jobs.html" target="_blank">Login</a>
+      <a href="jobs.html" target="_blank">Signup</a>
     </nav>
+    {% comment %} <div>
+    {% include 'navbar.html'%}
+    </div> {% endcomment %}
   </header>
 
   <section>
@@ -39,7 +83,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="{% url 'privacy' %}">Privacy Policy</a> | <a href="{% url 'about' %}">About Us</a> | <a href="{% url 'contact' %}">Contact Us</a> | <a href="{% url 'terms' %}">Terms of service</a></p>
   </footer>
 </body>
 </html>
