@@ -54,3 +54,4 @@ class Application(models.Model):
 
     def __str__(self):
         return self.job_id.job_title
+
