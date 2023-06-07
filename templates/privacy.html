@@ -2,6 +2,40 @@
 <html>
 <head>
   <title>Privacy Policy - JobKonnect</title>
+  <style>
+    body {
+      margin: 20px;
+    }
+
+    header {
+      background-color: #00bdfe;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -65,3 +99,8 @@
     <h3>Updates to this Privacy Policy</h3>
     <p>
       We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We encourage you to review
+    </p>
+
+  <footer>
+    <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="{% url 'privacy' %}">Privacy Policy</a> | <a href="{% url 'about' %}">About Us</a> | <a href="{% url 'contact' %}">Contact Us</a> | <a href="{% url 'terms' %}">Terms of service</a></p>
+  </footer>
