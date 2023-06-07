@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import Job, Application
 from account.models import Employee, Employer
+from django.views.generic import View, ListView
 from django.http import HttpResponse, request
 from django.contrib.auth.decorators import login_required
-
+from django.utils.decorators import method_decorator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 """
 The jobs app views will handle the following:
 Employer posts a job and it is saved in the database
@@ -34,10 +36,13 @@ def post_job(request):
         requirements = request.POST.get('requirements')
 
         # Get the employer ID of the currently signed-in user
-        if Employee.objects.filter(userid=request.user):
-            return redirect('/employee')
-        elif Employer.objects.filter(userid=request.user):
-            employer = Employer.objects.get(userid=request.user)
+        # employer = Employer.objects.get(userid=request.user)
+        # employee = Employee.objects.get(user_id=request.user)
+
+        if Employee.objects.filter(user=request.user).exists():
+            return redirect('/employee/')
+        elif Employer.objects.filter(userid=request.user).exists():
+            user = Employer.objects.get(userid=request.user)
             this_job = Job.objects.create(
                 job_title=job_title,
                 job_type=job_type,
@@ -46,45 +51,92 @@ def post_job(request):
                 description=description,
                 salary=salary,
                 requiments=requirements,
-                user_id=employer
+                user_id=user
             )
-            # Redirect to the employer dashboard
             return redirect('/employer/landing')
+        else:
+            return redirect('/employee/')
+            # else:
+            #     return render(request, 'post.html')
     else:
         return render(request, 'post.html')
-@login_required
-def apply_job(request):
-    if request.method == 'POST':
-        job_id = request.POST('job_id')
-        status = 1  # Set default status to 'Pending'
-        proposal = request.POST('proposal')
-        cv = request.FILES.get('cv')
-        estimated_salary = request.POST('estimated_salary')
+    
 
-        application = Application(
-            job_id=Job.objects.get(job_id=job_id),
+
+@method_decorator(login_required, name='dispatch')
+class ApplicationCreateView(View):
+    template_name = 'jobs/employee_landing.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        employee = Employee.objects.get(user_id=request.user)
+        job_id = request.POST.get('jobid')
+        job = Job.objects.get(job_id = job_id)
+        userid = employee
+        status = 'pending'  # Set default status to 'Pending'
+        proposal = request.POST.get('proposal')
+        cv = request.FILES.get('cv')
+        estimated_salary = request.POST.get('estimated_salary')
+
+        application = Application.objects.create(
+            job_id=job,
             status=status,
             proposal=proposal,
+            userid=userid,
             cv=cv,
             estimated_salary=estimated_salary
         )
-
-        application.objects.create()
+        apply = application
         
         # Redirect to jobseeker dashboard or another appropriate page
-        return redirect('jobs/post.html')
-    else:
-        # Render the form for applying to a job
-        return render(request, 'jobs/post.html')
+        if apply:
+            return redirect('/employee/')
+        else:
+            return render(request, 'jobs/employee_landing.html')
 
 def jobseeker_landing(request):
     """
     This view will handle the jobseeker landing page
     Check on how to filter based on the status, professionalism, location
     """
-    #get all jobs
-    jobs = Job.objects.all()
-    return render(request, 'jobs/employee_landing.html', {'jobs': jobs})
+    queryset = Job.objects.all()
+    context_object_name = 'jobs'
+    paginator = Paginator(queryset, 3)
+    page = request.GET.get('page')
+    template_name = 'jobs/employee_landing.html'
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
+    return render(request, template_name, {'jobs': queryset, 'page': page, 'context_object_name': context_object_name})
+
+
+
+
+class search_job(ListView):
+    """
+    This view will handle the jobseeker landing page
+    """
+    template_name = 'jobs/employee_landing.html'
+    paginate_by = 2
+    context_object_name = 'jobs'
+
+    def get_queryset(self):
+        location = self.request.POST.get('location')
+        job_type = self.request.POST.get('job_type')
+        if location and job_type:
+            queryset = Job.objects.filter(job_location=location, job_type=job_type)
+        elif location:
+            queryset = Job.objects.filter(job_location=location)
+        elif job_type:
+            queryset = Job.objects.filter(job_type=job_type)
+        else:
+            queryset = Job.objects.all()
+        return queryset
 @login_required
 def employer_landing(request):
     """
