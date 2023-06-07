@@ -2,16 +2,50 @@
 <html>
 <head>
   <title>About Us - JobKonnect</title>
+  <style>
+    body {
+      margin: 20px;
+    }
+
+    header {
+      background-color: #00bdfe;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to JobKonnect</h1>
+    <h1>JobKonnect</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="jobs.html">Find Job</a>
-      <a href="post.html">Post Job</a>
+      <a href="/">Home</a>
+      <a href="{ url 'employer/post_job' }">Post Job</a>
+      <a href="{ url 'employee/apply_job' }">Find Job</a>
       <a href="contact.html">Contact Us</a>
-    </nav>
+    </nav> 
   </header>
 
   <section>
@@ -42,7 +76,8 @@
   </section>
 
   <footer>
-    <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="{% url 'privacy' %}">Privacy Policy</a> | <a href="{% url 'about' %}">About Us</a> | <a href="{% url 'contact' %}">Contact Us</a> | <a href="{% url 'terms' %}">Terms of service</a></p>
   </footer>
 </body>
 </html>
+
