@@ -34,20 +34,22 @@ def post_job(request):
         requirements = request.POST.get('requirements')
 
         # Get the employer ID of the currently signed-in user
-        employer = Employer.objects.get(userid=request.user)
-
-        this_job = Job.objects.create(
-            job_title=job_title,
-            job_type=job_type,
-            job_status=job_status,
-            job_location=job_location,
-            description=description,
-            salary=salary,
-            requiments=requirements,
-            user_id=employer
-        )
-        # Redirect to the employer dashboard
-        return redirect('/employer/landing')
+        if Employee.objects.filter(userid=request.user):
+            return redirect('/employee')
+        elif Employer.objects.filter(userid=request.user):
+            employer = Employer.objects.get(userid=request.user)
+            this_job = Job.objects.create(
+                job_title=job_title,
+                job_type=job_type,
+                job_status=job_status,
+                job_location=job_location,
+                description=description,
+                salary=salary,
+                requiments=requirements,
+                user_id=employer
+            )
+            # Redirect to the employer dashboard
+            return redirect('/employer/landing')
     else:
         return render(request, 'post.html')
 @login_required
