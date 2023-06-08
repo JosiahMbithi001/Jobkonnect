@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9ja^*)s8s!4m$hvu5_s)uxt(8@bpc_*%pf!ywx@yx8v6@45aei'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -123,7 +123,7 @@ USE_TZ = True
 
 #Tell Django Where to locate our static files
 STATIC_URL = 'static/'
-#STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))] 
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))] 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
