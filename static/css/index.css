@@ -6,10 +6,12 @@
     align-items: center;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
-    background-color: black;
+    background-color: #00bdfe;
     color: white;
     border-bottom: 1px solid white;  
     margin-top: 0%;
+    height: 150px;
+    font-weight: bold;
 }
 .logo{
     /* color: white; */
@@ -44,7 +46,7 @@ button{
     margin-left: 4%;
     height: 100vh;
     margin-top: 20px;
-    margin-bottom: 10%;
+    margin-bottom: 10px;
 }
 .container-2{
     display: flex;
@@ -100,3 +102,37 @@ a:hover{
 #link-1:hover{
     color: grey;
 }
+
+/* last section css */
+
+/* .image-with-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-container {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .text-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .text-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .text-container p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+   */

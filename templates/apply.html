@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,13 +76,13 @@
 <body>
   <header>
     <h1>Welcome to JobKonnect</h1>
-    <nav>
+    {% comment %} <nav>
       <a href="base.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="jobs.html">Find Job</a>
       <a href="post.html">Post Job</a>
       <a href="contact.html">Contact Us</a>
-    </nav>
+    </nav> {% endcomment %}
   </header>
 
   <section>
@@ -119,6 +122,7 @@
   </script>
 </body>
 </html>
+{% endblock %}
 
 
 
