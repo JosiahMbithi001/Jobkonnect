@@ -1,66 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
   <title>Contact Us - JobKonnect</title>
-  <style>
-    body {
-      margin: 20px;
-      height: auto;
-    }
-
-    header {
-      background-color: #00bdfe;
-      color: #fff;
-      padding: 20px;
-    } 
-
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    section {
-      background-color: #fff;
-      padding: 20px;
-      margin: 20px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 10px;
-      font-weight: bold;
-    }
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-      margin-top: auto;
-      height: 150px;
-        }
-
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="{% static '/css/index.css' %}">
+  <link rel="stylesheet" href="{% static '/css/contact.css' %}">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href= '/' target="_blank">Home</a>
-      <a href="employer/post_job" target="_blank">Post Job</a>
-      <a href="employee/apply_job" target="_blank">Find Job</a>
-      <a href="{ url '/about'}" target="_blank">About Us</a>
-      <a href="{ url '/contact'}" target="_blank">Contact Us</a>
-      <a href="{ url '/account/login'}" target="_blank">Login</a>
-      <a href="account/signup" target="_blank">Signup</a>
-    </nav>
-    {% comment %} <div>
-    {% include 'navbar.html'%}
-    </div> {% endcomment %}
-  </header>
-
+  <nav class="nav-bar">
+    <span class="logo">JOBKONNECT</span>
+    <ul class="nav-list">
+        <li class="nav-item" ><a href="/">HOME</a></li >
+        <li class="nav-item"><a href="/employer/post_job">POST JOB</a></li >
+        <li class="nav-item"><a href="/employee/">FIND JOB</a></li >
+        <li class="nav-item"><a href="/about/">ABOUT US</a></li >
+        <li class="nav-item"><a href="/contact/">CONTACT US</a></li >
+        <li class="nav-item"><button ><a href="/account/login" class="buttons">LOGIN</a></button></li >
+        <li class="nav-item"><button ><a href="/account/" class="buttons">REGISTER</a></button></li >
+    </ul>
+</nav>
+<div class="container">
   <section>
     <h2>Contact Us</h2>
     <p>
@@ -81,9 +40,9 @@
       <li><a href="https://instagram.com/jobkonnectke" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a></li>
     </ul>
   </section>
-
+</div>
   <footer>
     <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="{% url 'privacy' %}">Privacy Policy</a> | <a href="{% url 'about' %}">About Us</a> | <a href="{% url 'contact' %}">Contact Us</a> | <a href="{% url 'terms' %}">Terms of service</a></p>
-  </footer>
+  </footer> 
 </body>
 </html>

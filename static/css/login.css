@@ -3,7 +3,7 @@ main {
     height: 60%;
     justify-content: center;
     margin-left: 35%;
-    margin-top: 10%;
+    margin-top: 10px;
     border:2px solid #000000;
     border-radius: 4px;
     background-color: #f2f2f2;
@@ -37,4 +37,5 @@ main {
  }
   #devise_links {
     margin-left: -10%;
+    font: black;
   }

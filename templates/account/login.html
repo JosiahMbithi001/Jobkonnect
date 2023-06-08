@@ -1,11 +1,26 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/footerl.css' %}">
 <!DOCTYPE html>
 <html>
   <head>
     <title>Login Page</title>
   </head>
   <body>
+    <nav class="nav-bar">
+      <span class="logo">JOBKONNECT</span>
+      <ul class="nav-list">
+          <li class="nav-item" ><a href="/">HOME</a></li >
+          <li class="nav-item"><a href="/employer/post_job">POST JOB</a></li >
+          <li class="nav-item"><a href="/employee/">FIND JOB</a></li >
+          <li class="nav-item"><a href="/about/">ABOUT US</a></li >
+          <li class="nav-item"><a href="/contact/">CONTACT US</a></li >
+          <li class="nav-item"><button ><a href="/account/login" class="buttons">LOGIN</a></button></li >
+          <li class="nav-item"><button ><a href="/account/" class="buttons">REGISTER</a></button></li >
+      </ul>
+  </nav>
+<div>
     <main>
       <article class="article">
         <div class="logged_out_form">
@@ -29,7 +44,13 @@
         </ul>
         </div>
       </article>
-      <div class="copyright">Copyright © 2023 JobKonnect,<br> All rights reserved.</div>
+      {% comment %} <div class="copyright">Copyright © 2023 JobKonnect,<br> All rights reserved.</div> {% endcomment %}
     </main>
+  </div>
+  <div>
+    <footer>
+      <p>&copy; 2023 JobKonnect. All rights reserved. | <a href="{% url 'privacy' %}">Privacy Policy</a> | <a href="{% url 'about' %}">About Us</a> | <a href="{% url 'contact' %}">Contact Us</a> | <a href="{% url 'terms' %}">Terms of service</a></p>
+    </footer>
+  </div>
   </body>
 </html>
