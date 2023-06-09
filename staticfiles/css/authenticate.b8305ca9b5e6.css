@@ -1,0 +1,135 @@
+.container-1 {
+    display: flex; 
+    max-width: 50%;
+    justify-content:center;
+    background-image: url("/static/images/spencer-davis-SVfXlChg9HI-unsplash.6d1ecf934fc2.jpg");
+    align-items: center;
+    height: 100vh;
+    margin-left: 30%;
+    background-repeat: no-repeat;
+}
+.container-2{
+    display: inline-block;
+}
+.box-1{
+    width: 50%; 
+    justify-content: space-between;
+    padding: 26px;
+    font-family: serif;
+    font-size: large;
+    max-width: auto;
+    /* align-items: flex-end; */
+    border-radius: 20px;
+    color: white;
+    border: 1px solid white;
+}  
+.box-2 {
+    width: 50%;
+    max-width: auto;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 26px;
+    border-radius: 20px;
+    font-size: large;
+    color: white;
+    border: 1px solid white;
+}
+.container-3{
+    display: flex;
+    margin-top: 30px;
+}
+.box-3 {
+    /* background-color: coral; */
+    max-width: auto;
+    justify-content: center;
+    align-items: center;
+    padding-left: 26px;
+    padding-right: 26px;
+    padding: 26px;
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid white;
+}
+.box-1:hover{
+    background-color: white;
+    color: black;
+}
+.box-2:hover{
+    background-color: white;
+    color: black;
+}
+.box-3:hover{
+    background-color: white;
+    color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box-1 {
+  width: 50%;
+  justify-content: space-between;
+  padding: 26px;
+  font-family: serif;
+  font-size: large;
+  max-width: auto;
+  align-items: flex-end;
+  border-radius: 20px;
+  color: white;
+  border: 1px solid white;
+}
+
+.box-2 {
+  max-width: auto;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 26px;
+  border-radius: 20px;
+  font-size: large;
+  color: white;
+  border: 1px solid white;
+}
+
+.container-3 {
+  display: flex;
+  margin-top: 30px;
+}
+
+.box-3 {
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  padding-left: 26px;
+  padding-right: 26px;
+  padding: 26px;
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  border-radius: 20px;
+  color: white;
+  border: 1px solid white;
+}
+
+.box-1:hover {
+  background-color: white;
+  color: black;
+}
+
+.box-2:hover {
+  background-color: white;
+  color: black;
+}
+
+.box-3:hover {
+  background-color: white;
+  color: black;
+}
