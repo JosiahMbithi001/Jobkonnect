@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from os.path import join
 import os
-import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9ja^*)s8s!4m$hvu5_s)uxt(8@bpc_*%pf!ywx@yx8v6@45aei'
+#SECRET_KEY = 'django-insecure-9ja^*)s8s!4m$hvu5_s)uxt(8@bpc_*%pf!ywx@yx8v6@45aei'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -146,5 +145,5 @@ LOGIN_URL = '/account/login/'
 # AUTHENTICATION_BACKENDS = [
 #     'django.contrib.auth.backends.ModelBackend',
 # ]
-
+import django_heroku
 django_heroku.settings(locals())

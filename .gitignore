@@ -17,3 +17,4 @@ jobs/migrations
 node_modules/
 venv/
 myenv/
+.env
