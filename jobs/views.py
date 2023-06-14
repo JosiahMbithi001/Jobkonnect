@@ -35,10 +35,6 @@ def post_job(request):
         salary = request.POST.get('salary')
         requirements = request.POST.get('requirements')
 
-        # Get the employer ID of the currently signed-in user
-        # employer = Employer.objects.get(userid=request.user)
-        # employee = Employee.objects.get(user_id=request.user)
-
         if Employee.objects.filter(user=request.user).exists():
             return redirect('/employee/')
         elif Employer.objects.filter(userid=request.user).exists():
@@ -56,8 +52,6 @@ def post_job(request):
             return redirect('/employer/landing')
         else:
             return redirect('/employee/')
-            # else:
-            #     return render(request, 'post.html')
     else:
         return render(request, 'post.html')
     
@@ -147,9 +141,7 @@ def employer_landing(request):
     employer = Employer.objects.get(userid=request.user)
 
     job_posted = Job.objects.filter(user_id=employer)
-    #job_posted = Job.objects.get(user_id=request.Employer)
     if job_posted:
-        # applications = Application.objects.filter(job_id__in = job_posted)
         return render(request, 'jobs/employer_landing.html', {'jobs': job_posted})
     else:
         employees = Employee.objects.filter(location=Employer.location)

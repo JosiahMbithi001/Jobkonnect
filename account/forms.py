@@ -5,16 +5,7 @@ from .models import Certificate, Employer, Employee
 
 
 class EmployerForm(forms.ModelForm):
-    """
-    This is Employers Form
-    """
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-
-    #     #Loops and sets the required fields to True
-    #     for field in self.fields.items():
-    #         field.required = True
-    
+ 
     class Meta:
         """
         Employers MetaData
@@ -23,15 +14,6 @@ class EmployerForm(forms.ModelForm):
         fields = '__all__'
 
 class EmployeeForm(forms.ModelForm):
-    """
-    This is the Form Employees will Fill
-    """
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-
-    #     #Loops Through All Employee Fields and sets required to True
-    #     for field in self.fields.items():
-    #         field.required = True
 
     class Meta:
         """
