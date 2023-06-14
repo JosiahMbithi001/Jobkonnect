@@ -1,8 +1,11 @@
 # Jobkonnect
 This is Our Portfolio Project by:
-Joseph Thuku
-Francis Onyach
-Josiah Mbithi
+Joseph Thuku https://www.linkedin.com/in/joseph-thuku-01898b208
+Francis Onyach https://www.linkedin.com/in/francis-onyach-73190011b/
+Josiah Mbithi https://www.linkedin.com/in/josiah-mbithi-8b17331b9
+
+Project URL: mrjt.tech
+Medium Blog: https://medium.com/@franblog7/the-ups-and-downs-of-building-a-web-app-from-scratch-as-a-newbie-c8a44c7b9e0b
 
 JobKonnect is a web-based platform that aims to connect employers and employees by providing a convenient and efficient way for employers to post job openings and for job seekers to apply for those positions. The platform allows users to search for jobs based on location and type, providing a streamlined experience for both employers and job seekers.
 
